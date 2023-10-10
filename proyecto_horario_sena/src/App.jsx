@@ -9,6 +9,7 @@ import Error404 from "./pages/Error404";
 
 //Admin Page
 import { LayoutAdmin } from "./layouts/LayoutAdmin";
+import SedePage from "./pages/admin/Sede";
 
 function App() {
 
@@ -18,7 +19,9 @@ function App() {
         <Route path="/login" element={<SignIn/>}/>
         <Route path="/registro" element={<SignOut/>} />
         <Route path="/olvide-mi-contraseña" element={<ForgetPassword/>} />
-          <Route path="/" element={<LayoutAdmin/>}/>
+          <Route path="/" element={<LayoutAdmin/>}>
+            <Route path="sede" element={<SedePage/>}/>
+            </Route>
         <Route path="*" element={<Error404 />} />
       </Routes>
     </BrowserRouter>

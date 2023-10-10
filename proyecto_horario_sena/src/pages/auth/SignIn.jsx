@@ -17,9 +17,9 @@ const SignIn = () => {
       <div className='bg-secondary-900 p-8 rounded-xl flex flex-col gap-4 shadow-2xl w-auto lg:w-[450px]'>
         <h1 className='text-center text-3xl uppercase font-bold tracking-[5px] text-white mb-3'>Iniciar <span className='text-primary'>sesión</span> </h1>
         <form >
-          <button className='flex items-center justify-center py-3 px4 mb-8 gap-4 bg-secondary-100 w-full rounded-full text-gray-500'>
+          <button className='flex items-center justify-center py-3 px4 mb-8 gap-4 bg-primary/60 w-full rounded-full text-secondary-100 font-semibold'>
             <img 
-              className='h-4 w-4 '
+              className='h-5 w-5 '
               src="https://cdn-icons-png.flaticon.com/512/300/300221.png" 
               alt="Logo Google" /> Ingresa con Google
             </button>
@@ -36,7 +36,7 @@ const SignIn = () => {
               <input
                 required 
                 type={showPassword ? "text" : "password"} 
-                className='py-3 px-8 bg-secondary-100 w-full outline-none rounded-lg border border-secondary-900 focus:border-primary transition-all' 
+                className='py-3 px-8 -100 w-full outline-none rounded-lg border border-secondary-900 focus:border-primary transition-all' 
                 placeholder='Contraseña'/>
               {
                 showPassword ? (
@@ -53,7 +53,7 @@ const SignIn = () => {
           <div>
             <button 
               type='submit'
-              className='bg-secondary-100 w-full py-3 px-4 rounded-lg border border-secondary-100 hover:border-primary transition-all uppercase'>
+              className='hover:bg-secondary-100 bg-white w-full py-3 px-4 rounded-lg border border-secondary-100 hover:border-primary transition-colors uppercase'>
               Ingresar
             </button>
           </div>
