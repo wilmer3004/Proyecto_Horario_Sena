@@ -32,9 +32,9 @@ const SignIn = () => {
           'Content-Type': 'application/json',
         },
       };
-  
-      const response = await axios.post('https://vldhjx7f-5000.use2.devtunnels.ms/auth/', data, config);
-      
+      // Corregir BreckPoint Para la peticion 
+      const response = await axios.post('http://127.0.0.1:5000/auth/', data, config);
+      console.log(response)
       
       if (response.status === 200) { // Verifica si la respuesta tiene un código de estado 200 (éxito)
         const token = response.data.token;
