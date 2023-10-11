@@ -55,7 +55,7 @@ const SignIn = () => {
     <div className='min-h-screen flex items-center justify-center p-4'>
       <div className='bg-secondary-900 p-8 rounded-xl flex flex-col gap-4 shadow-2xl w-auto lg:w-[450px]'>
         <h1 className='text-center text-3xl uppercase font-bold tracking-[5px] text-white mb-3'>Iniciar <span className='text-primary'>sesión</span> </h1>
-        <form action='post'>
+        <form method='POST'>
           <button className='flex items-center justify-center py-3 px4 mb-8 gap-4 bg-primary/60 w-full rounded-full text-secondary-100 font-semibold'>
             <img 
               className='h-5 w-5 '
@@ -66,7 +66,7 @@ const SignIn = () => {
               <RiMailLine className='absolute top-1/2 -translate-y-1/2 left-2 text-primary'/>
               <input 
                 required
-                type="number"
+                type="text"
                 name="idTipoDocFK"
                 value={formData.idTipoDocFK}
                 onChange={handleInputChange}
@@ -77,7 +77,7 @@ const SignIn = () => {
               <RiMailLine className='absolute top-1/2 -translate-y-1/2 left-2 text-primary'/>
               <input 
                 required
-                type="number"
+                type="text"
                 name="numeroIdent"
                 value={formData.numeroIdent}
                 onChange={handleInputChange}
