@@ -17,7 +17,7 @@ const Header = () => {
           <Link to='/'>
            <RiAccountCircleLine/>
           </Link>
-          <Link to="/ ">
+          <Link to="/login">
            <RiLogoutCircleRLine/>
           </Link>
         </div>

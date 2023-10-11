@@ -19,7 +19,7 @@ function App() {
         <Route path="/login" element={<SignIn/>}/>
         <Route path="/registro" element={<SignOut/>} />
         <Route path="/olvide-mi-contraseña" element={<ForgetPassword/>} />
-          <Route path="/" element={<LayoutAdmin/>}>
+          <Route path="/post" element={<LayoutAdmin/>}>
             <Route path="sede" element={<SedePage/>}/>
             </Route>
         <Route path="*" element={<Error404 />} />
