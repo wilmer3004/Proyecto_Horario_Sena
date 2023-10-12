@@ -7,7 +7,7 @@ import Header from '../components/Header/Header'
 
 export const LayoutAdmin = () => {
   return (
-    <div className='min-h-screen grid grid-cols-1 xl:grid-cols-6'>
+    <div className='min-h-screen grid grid-cols-1 xl:grid-cols-6 bg-gray-50'>
       <Sidebar/>     
       <div className=' xl:col-span-5 '>
         <Header />

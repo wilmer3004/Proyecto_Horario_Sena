@@ -12,6 +12,8 @@ import { LayoutAdmin } from "./layouts/LayoutAdmin";
 import { SedePage } from "./pages/admin/sede/SedePage";
 import { InstructorPage } from "./pages/admin/instructor/instructorPage";
 import { TematicaPage } from "./pages/admin/tematica/tematicaPage";
+import { FichaPage } from "./pages/admin/ficha/FichaPage";
+import { TrimestrePage } from "./pages/admin/trimestre/trimestrePage";
 
 function App() {
 
@@ -25,6 +27,8 @@ function App() {
             <Route path="sede" element={<SedePage/>}/>
             <Route path="instructores" element={<InstructorPage/>}/>
             <Route path="tematicas" element={<TematicaPage/>}/>
+            <Route path="fichas" element={<FichaPage/>}/>
+            <Route path="trimestres" element={<TrimestrePage/>}/>
           </Route >
         <Route path="*" element={<Error404 />} />
       </Routes>

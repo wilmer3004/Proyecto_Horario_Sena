@@ -1,0 +1,84 @@
+{
+    "sedes":[
+      {
+      "id": 1, "name": "Sena Fontibon",
+      "info": "Sena Fontibón, Institución educativa Cl 19A #96c-40, Fontibón, Bogotá", 
+      "img": "https://1.bp.blogspot.com/-aV5Pk_zyZCw/YD6PmVfEavI/AAAAAAAAK2k/3plwHmmxkToZQ8z-Hxt8SFfgQIrvnLzeQCLcBGAsYHQ/s2048/Foto%2B3.jpg"
+     },
+      {
+        "id": 2, "name": "SENA Sucursal Álamos e", 
+        "info": "SENA Sucursal Álamos e. Escuela, a 64c-99, Cra. 89A #64c-1, Bogotá", 
+        "img": "https://2.bp.blogspot.com/-x-AkWDy2gOo/WKNH4vFFzJI/AAAAAAAAAN8/wDHwLKPTrX8SbKyqtD4ayTL2y-B6XMO9QCLcB/s1600/sedes-03.png" 
+      },
+      {
+        "id": 3, "name": "SENA CGMLTI", 
+        "info": "SENA CGMLTI Centro educativo, Cl. 52 #13 65, Bogotá", 
+        "img": "https://1.bp.blogspot.com/-lmikDKhFcQE/YDf3p_sli1I/AAAAAAAAKwk/bZDD00veXF8uPB8bA-xRW9rH-kZs5bnUgCLcBGAsYHQ/w1200-h630-p-k-no-nu/SENA52.jpg" 
+      }
+    ],
+    "usuario": [
+      {"id": 1, "name": "Karolay Locarno", 
+        "info": "Instructor de planta: Java, Python, JavaScript, Framework",
+        "img":"https://img.freepik.com/foto-gratis/retrato-mujer-joven-magnifica-sonrisa-pie-brazos-cruzados-aislado-sobre-blanco_171337-1184.jpg"
+      },
+      {"id": 2, "name": "Luis Revolledo", 
+        "info": "Instructor de planta: Java, Python, JavaScript, Framework",
+        "img":"https://img.freepik.com/foto-gratis/feliz-joven_1098-20869.jpg"
+      },
+      {"id": 3, "name": "Tatiana Cabrera", 
+        "info": "Instructor de planta: Java, Python, JavaScript, Framework",
+        "img":"https://img.freepik.com/foto-gratis/elegante-empresaria-segura-sonriendo_176420-19466.jpg"
+      }
+    ],
+    "tematicas":[
+      {"id": 1, "name":"Java",
+        "info":"Java es un lenguaje de programación y una plataforma informática que fue comercializada",
+        "img": "https://m.com-magazin.de/img/1/5/8/6/6/7/8/20210726UmgangMitJava_teas_quelleOracleCom_w640_h400.jpg"    
+      },
+      {"id": 2, "name":"Python",
+        "info":"Python es un lenguaje de alto nivel de programación interpretado cuya filosofía hace hincapié",
+        "img": "https://www.icog.es/cursos/wp-content/uploads/2020/09/phyton.png"    
+      },
+      {"id": 3, "name":"JavaScript",
+        "info":"JavaScript es un lenguaje de programación interpretado, dialecto del estándar ECMAScript",
+        "img": "https://www.dongee.com/tutoriales/content/images/2022/10/image-83.png"    
+      }
+    ],
+    "ficha": [
+      {"id": 1,"name":"Ficha: 286734",
+        "info":"Ficha Teleinformatica, ADSO, 10-02-2022  a 15-12-2023",
+        "img":"https://img.freepik.com/foto-gratis/primer-plano-ejecutivos-negocios-oficina_1170-1722.jpg"      
+      }, 
+      {"id": 2,"name":"Ficha: 233452",
+        "info":"Ficha Teleinformatica, ADSO, 10-02-2022  a 15-12-2023",
+        "img":"https://img.freepik.com/foto-gratis/primer-plano-ejecutivos-negocios-oficina_1170-1722.jpg"      
+      }, 
+      {"id": 3,"name":"Ficha: 5432234",
+        "info":"Ficha Teleinformatica, ADSO, 10-02-2022  a 15-12-2023",
+        "img":"https://img.freepik.com/foto-gratis/primer-plano-ejecutivos-negocios-oficina_1170-1722.jpg"      
+      }, 
+      {"id": 4,"name":"Ficha: 234523",
+        "info":"Ficha Teleinformatica, ADSO, 10-02-2022  a 15-12-2023",
+        "img":"https://img.freepik.com/foto-gratis/primer-plano-ejecutivos-negocios-oficina_1170-1722.jpg"      
+      }
+    ],
+    "trimestre": [
+      {"id": 1,"name":"Trimestre: I",
+        "info":"Trimestre I (1) 10-02-2022 | 12-05-2023",
+        "img": "./NumerosRomanos/Uno.png"      
+      }, 
+      {"id": 1,"name":"Trimestre: II",
+       "info":"Trimestre I (1) 10-02-2022 | 12-05-2023",
+       "img": "./NumerosRomanos/Dos.png"     
+      }, 
+      {"id": 1,"name":"Trimestre: III",
+        "info":"Trimestre I (1) 10-02-2022 | 12-05-2023",
+        "img": "./NumerosRomanos/Tres.png"     
+      }, 
+      {"id": 1,"name":"Trimestre: IV",
+        "info":"Trimestre I (1) 10-02-2022 | 12-05-2023",
+        "img":"./NumerosRomanos/Cuatro.png"     
+      }
+    ]
+  } 
+  

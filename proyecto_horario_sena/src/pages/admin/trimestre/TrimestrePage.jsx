@@ -1,18 +1,17 @@
 import React from 'react'
-import { usuarioData } from './data/sendRequest';
+import {trimestreData } from './data/sendRequest';
 
 import { Tab } from '@headlessui/react'
 import { Card } from '../../../components/cards/Card';
 import LayoutPage from '../../../layouts/LayoutPage';
-import { Form } from '../../../components/form/Form';
 
 
 
-export const InstructorPage = () => {
-  const datos = usuarioData()
+export const TrimestrePage = () => {
+  const datos = trimestreData()
 
   return (
-    <LayoutPage title="INSTRUCTORES">
+    <LayoutPage title="TRIMESTRES">
       <Tab.Panels>
         <Tab.Panel>
             <div className="flex items-center justify-center gap-6 flex-wrap">
@@ -22,14 +21,14 @@ export const InstructorPage = () => {
                     title={dato.name} 
                     info={dato.info} 
                     img={dato.img}
-                    textColor={"red-500"}
+                    textColor={0}
                     id={dato.id}
                     />
                 ))}
             </div> 
         </Tab.Panel>
         <Tab.Panel>
-            <Form/>
+            tab 3
         </Tab.Panel>
       </Tab.Panels>
     </LayoutPage>
