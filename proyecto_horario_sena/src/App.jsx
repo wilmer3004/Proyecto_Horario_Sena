@@ -9,7 +9,9 @@ import Error404 from "./pages/Error404";
 
 //Admin Page
 import { LayoutAdmin } from "./layouts/LayoutAdmin";
-import SedePage from "./pages/admin/Sede";
+import { SedePage } from "./pages/admin/sede/SedePage";
+import { InstructorPage } from "./pages/admin/instructor/instructorPage";
+import { TematicaPage } from "./pages/admin/tematica/tematicaPage";
 
 function App() {
 
@@ -21,7 +23,9 @@ function App() {
         <Route path="/olvide-mi-contraseña" element={<ForgetPassword/>} />
           <Route path="/" element={<LayoutAdmin/>}>
             <Route path="sede" element={<SedePage/>}/>
-            </Route>
+            <Route path="instructores" element={<InstructorPage/>}/>
+            <Route path="tematicas" element={<TematicaPage/>}/>
+          </Route >
         <Route path="*" element={<Error404 />} />
       </Routes>
     </BrowserRouter>

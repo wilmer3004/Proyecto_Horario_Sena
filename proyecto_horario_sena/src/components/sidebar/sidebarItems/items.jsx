@@ -9,8 +9,8 @@ import {
  } from "react-icons/ri";
 
 export const items = [
-  {icono: <RiUser3Line className='w-6 h-6'/> ,        title:'INSTRUCTOR',  to: '/'},
-  {icono: <RiBookOpenLine className='w-6 h-6'/> ,     title:'TEMATICA',    to: '/'},
+  {icono: <RiUser3Line className='w-6 h-6'/> ,        title:'INSTRUCTOR',  to: '/instructores'},
+  {icono: <RiBookOpenLine className='w-6 h-6'/> ,     title:'TEMATICA',    to: '/tematicas'},
   {icono: <RiGroupLine className='w-6 h-6'/> ,        title:'FICHA',       to: '/'},
   {icono: <RiTv2Line className='w-6 h-6'/> ,          title:'PROGRAMA',    to: '/'},
   {icono: <RiBuilding4Line className='w-6 h-6'/> ,    title:'SEDE',        to: 'sede'},

@@ -17,16 +17,18 @@ export const SidebarBody = () => {
       <div>
         <ul className='w-full flex flex-col gap-4'>
         {items.map((item) => (
-        <li
-          key={item.title}
-          className={`flex py-2 px-3 items-center gap-5 text-secondary-100 text-[15px] rounded-lg hover:bg-secondary-100 hover:text-primary transition-colors  border-secondary-100 ${
-            activeItem === item ? 'bg-secondary-100 text-green-600 ' : ''
-          }`}
-          onClick={() => handleItemClick(item)}
-        >
-          {item.icono}
-          <Link to={item.to}>{item.title}</Link>
-        </li>
+          <Link to={item.to}>
+            <li
+              key={item.title}
+              className={`flex py-2 px-3 items-center gap-5 text-secondary-100 text-[15px] rounded-lg hover:bg-secondary-100 hover:text-primary transition-colors border-secondary-100 ${
+                activeItem === item ? 'bg-secondary-900 text-green-600' : ''
+              }`}
+              onClick={() => handleItemClick(item)}
+            >
+              {item.icono}
+              {item.title}
+            </li>
+        </Link>
       ))}
         </ul>
       </div>
