@@ -18,12 +18,12 @@ export const InstructorPage = () => {
             <div className="flex items-center justify-center gap-6 flex-wrap">
                 {datos.map((dato)=>(
                   <Card 
-                    key={dato.id}
-                    title={dato.name} 
-                    info={dato.info} 
-                    img={dato.img}
+                    key={dato.idInstructor}
+                    title={dato.nombreInstructor} 
+                    info={dato.horasSemanales} 
+                    img={dato.imagenInstructor}
                     textColor={"red-500"}
-                    id={dato.id}
+                    id={dato.idInstructor}
                     />
                 ))}
             </div> 

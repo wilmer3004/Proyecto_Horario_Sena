@@ -6,7 +6,7 @@ export const usuarioData = () => {
   const [datos, setDatos] = useState([])
 
   useEffect(()=>{
-      const endpoint = 'usuario';
+      const endpoint = 'instructor';
 
       getDataFromEndpoin(endpoint)
       .then((data)=>{
