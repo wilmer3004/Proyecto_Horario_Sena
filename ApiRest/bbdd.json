@@ -1,7 +1,7 @@
 {
     "localidad":[
       {
-        "id":"1", 
+        "id":1, 
         "nombreLocalidad":"Usaquén"
       },
       {
@@ -11,10 +11,10 @@
     ],
     "sede":[
       {
-        "idSede": "1", 
+        "idSede": 1, 
         "noombreSede":"SENA CGMLTI", 
         "direccionSede": "Cl. 52 #13 65, Bogotá", 
-        "estadoSede":"1", 
+        "estadoSede":1, 
         "imagenSede":"https://lh5.googleusercontent.com/p/AF1QipNjbxKjSgdYd0MjtGLkVOmpq4GtLQx8rnIyP063=w408-h306-k-no", 
         "idLocalidadFk": "2"
       },
@@ -22,127 +22,163 @@
         "idSede": "2", 
         "noombreSede":"SENA CGMLTI", 
         "direccionSede": "Cl. 52 #13 65, Bogotá", 
-        "estadoSede":"1", 
+        "estadoSede":1, 
         "imagenSede":"https://lh5.googleusercontent.com/p/AF1QipNjbxKjSgdYd0MjtGLkVOmpq4GtLQx8rnIyP063=w408-h306-k-no", 
         "idLocalidadFk": "2"
       }
     ],
     "ambiente":[
       {
-        "idAmbiente":"1",
+        "idAmbiente":1,
         "numeroAmbiente": 203,
         "horasDisponibles": 4,
         "estadoAmbiente":1,
-        "idSedeFk":"1"
+        "idSedeFk":1
       },
       {
-        "idAmbiente":"1",
+        "idAmbiente":1,
         "numeroAmbiente": 203,
         "horasDisponibles": 4,
         "estadoAmbiente":1,
-        "idSedeFk":"1"
+        "idSedeFk":1
       },
       {
-        "idAmbiente":"1",
+        "idAmbiente":1,
         "numeroAmbiente": 203,
         "horasDisponibles": 4,
         "estadoAmbiente":1,
-        "idSedeFk":"1"
+        "idSedeFk":1
       }
     ],
     "programa":[
       {
-        "idPrograma":"1",
+        "idPrograma":1,
         "nombrePrograma":"ADSO",
         "descripcionProgram":"Cualquier descripción",
         "versionPrograma":"v1.0",
-        "estadoPrograma":"1"
+        "estadoPrograma":1
       }
     ],
     "rol":[
       {
-        "idRol":"1",
+        "idRol":1,
         "nombreRol":"Administrador", 
-        "estadoRol":"1"
+        "estadoRol":1
       },
       {
         "idRol":"2", 
         "nombreRol":"Instructor", 
-        "estadoRol":"1"
+        "estadoRol":1
       }
     ],
     "tipoIdentificacion":[
       {
-        "idTipoIdentificacion": "1", 
+        "idTipoIdentificacion": 1, 
         "nombreTipoIdentificacion":"Cedula Ciudadania",
-        "estadoTipoIdentificacion":"1"
+        "estadoTipoIdentificacion":1
       }
     ],
     "usuario":[
       {
-        "idUsuario":"1",
+        "idUsuario":1,
         "numeroIdent":"1234565",
         "nombreUsuario":"Margarita",
         "apellidoUsuario":"Zarza",
         "correoUsuario":"margzarza@gmail.com",
         "telefonoUsuario":"123456789",
         "contrasenaUsuario":"margarita123",
-        "estadoUsuario":"1",
+        "estadoUsuario":1,
         "imagenUsuario":"https://img.freepik.com/foto-gratis/estudiante-acertado-feliz-que-presenta-brazos-cruzados_1262-17395.jpg",
         "idRolFk":"2",
-        "idTpoIdentificacionFK":"1"
+        "idTpoIdentificacionFK":1
       },
       {
-        "idUsuario":"1",
+        "idUsuario":1,
         "numeroIdent":"1234565",
         "nombreUsuario":"Margarita",
         "apellidoUsuario":"Zarza",
         "correoUsuario":"margzarza@gmail.com",
         "telefonoUsuario":"123456789",
         "contrasenaUsuario":"margarita123",
-        "estadoUsuario":"1",
+        "estadoUsuario":1,
         "imagenUsuario":"https://img.freepik.com/foto-gratis/estudiante-acertado-feliz-que-presenta-brazos-cruzados_1262-17395.jpg",
         "idRolFk":"2",
-        "idTpoIdentificacionFK":"1"
+        "idTpoIdentificacionFK":1
       }
     ],
     "instructor":[
       {
-        "idInstructor":"1",
+        "idInstructor":1,
         "nombreInstructor":"Margarita",
         "apellidoInstructor":"Zarsa",
-        "estadoInstructor":"1",
+        "estadoInstructor":1,
         "horasSemanales":"28",
         "imagenInstructor":"https://img.freepik.com/foto-gratis/estudiante-acertado-feliz-que-presenta-brazos-cruzados_1262-17395.jpg",
-        "idTpoIdentificacionFK":"1"
+        "idTpoIdentificacionFK":1
+      },
+      {
+        "idInstructor":"2",
+        "nombreInstructor":"Luis",
+        "apellidoInstructor":"Zarsa",
+        "estadoInstructor":0,
+        "horasSemanales":"28",
+        "imagenInstructor":"https://img.freepik.com/foto-gratis/estudiante-acertado-feliz-que-presenta-brazos-cruzados_1262-17395.jpg",
+        "idTpoIdentificacionFK":1
+      },
+      {
+        "idInstructor":"3",
+        "nombreInstructor":"Alexnader",
+        "apellidoInstructor":"Zarsa",
+        "estadoInstructor":1,
+        "horasSemanales":"28",
+        "imagenInstructor":"https://img.freepik.com/foto-gratis/estudiante-acertado-feliz-que-presenta-brazos-cruzados_1262-17395.jpg",
+        "idTpoIdentificacionFK":1
+      },
+      {
+        "idInstructor":"3",
+        "nombreInstructor":"Alexnader",
+        "apellidoInstructor":"Zarsa",
+        "estadoInstructor":1,
+        "horasSemanales":"28",
+        "imagenInstructor":"https://img.freepik.com/foto-gratis/estudiante-acertado-feliz-que-presenta-brazos-cruzados_1262-17395.jpg",
+        "idTpoIdentificacionFK":1
+      },
+      {
+        "idInstructor":"4",
+        "nombreInstructor":"Pedro",
+        "apellidoInstructor":"Zarsa",
+        "estadoInstructor":1,
+        "horasSemanales":"28",
+        "imagenInstructor":"https://img.freepik.com/foto-gratis/estudiante-acertado-feliz-que-presenta-brazos-cruzados_1262-17395.jpg",
+        "idTpoIdentificacionFK":1
       }
     ],
     "trimestre":[
       {
-        "idTrimestre":"1",
+        "idTrimestre":1,
         "nombreTrimestre":"Trimestre 1",
         "fechaInicio":"12/12/2023",
         "fechaFin":"12/12/2024",
-        "estadoTrimestre":"1"
+        "estadoTrimestre":1
       },
       {
         "idTrimestre":"2",
         "nombreTrimestre":"Trimestre 2",
         "fechaInicio":"12/12/2023",
         "fechaFin":"12/12/2024",
-        "estadoTrimestre":"1"
+        "estadoTrimestre":1
       }
     ],
     "tematica":[
       {
-        "idTematica":"1",
+        "idTematica":1,
         "nombreTematica":"Puthon",
         "descripcionTematica":"Alguna descripcion sobre la tematica",
         "horasMaximasM":"48",
         "horasMaxmasS":"12",
         "trimestre":"2",
-        "estadoTematica":"1",
-        "idProgramaFK":"1"
+        "estadoTematica":1,
+        "idProgramaFK":1
       },
       {
         "idTematica":"2",
@@ -151,54 +187,54 @@
         "horasMaximasM":"48",
         "horasMaxmasS":"12",
         "trimestre":"2",
-        "estadoTematica":"1",
-        "idProgramaFK":"1"
+        "estadoTematica":1,
+        "idProgramaFK":1
       }
     ],
     "tematicaInstructor":[
       {
-        "idTematicaInstructor":"1",
-        "idTematicaFK":"1",
-        "idInstructorFK":"1"
+        "idTematicaInstructor":1,
+        "idTematicaFK":1,
+        "idInstructorFK":1
       }
     ],
     "jornada":[
       {
-        "idJornada":"1",
+        "idJornada":1,
         "nombreJornada":"Diurna",
         "diaIniJor":"Enero 1",
         "diaFinJor":"Diciembre 12",
-        "estadoJornada":"1"
+        "estadoJornada":1
       }
     ],
     "ficha":[
       {
-        "idFicha":"1",
+        "idFicha":1,
         "nombreFicha":"202323",
-        "estadoFicha":"1",
-        "idProgramaFK":"1",
-        "idJornadaFK":"1"
+        "estadoFicha":1,
+        "idProgramaFK":1,
+        "idJornadaFK":1
       },
       {
         "idFicha":"2",
         "nombreFicha":"202324",
-        "estadoFicha":"1",
-        "idProgramaFK":"1",
-        "idJornadaFK":"1"
+        "estadoFicha":1,
+        "idProgramaFK":1,
+        "idJornadaFK":1
       }
     ],
     "bloque":[
       {
-        "idBloque":"1",
-        "idPosicion":"1",
-        "estadoBloque":"1",
-        "idAmbienteFK":"1",
-        "idFichaFK":"1",
-        "idInstructorFK":"1",
-        "idSedeFK":"1",
-        "idJornadaFK":"1",
-        "idTrimestreFK":"1",
-        "idTematicaFK":"1"
+        "idBloque":1,
+        "idPosicion":1,
+        "estadoBloque":1,
+        "idAmbienteFK":1,
+        "idFichaFK":1,
+        "idInstructorFK":1,
+        "idSedeFK":1,
+        "idJornadaFK":1,
+        "idTrimestreFK":1,
+        "idTematicaFK":1
       }
     ]
 

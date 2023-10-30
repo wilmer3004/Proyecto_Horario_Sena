@@ -5,6 +5,7 @@ import { Tab } from '@headlessui/react'
 import { Card } from '../../../components/cards/Card';
 import LayoutPage from '../../../layouts/LayoutPage';
 import { Form } from '../../../components/form/Form';
+import BasicTable from '../../../components/UI/Table/table';
 
 
 
@@ -12,21 +13,10 @@ export const InstructorPage = () => {
   const datos = usuarioData()
 
   return (
-    <LayoutPage title="INSTRUCTORES">
+    <LayoutPage title={`INSTRUCTORES (${datos.length})`}>
       <Tab.Panels>
         <Tab.Panel>
-            <div className="flex items-center justify-center gap-6 flex-wrap">
-                {datos.map((dato)=>(
-                  <Card 
-                    key={dato.idInstructor}
-                    title={dato.nombreInstructor} 
-                    info={dato.horasSemanales} 
-                    img={dato.imagenInstructor}
-                    textColor={"red-500"}
-                    id={dato.idInstructor}
-                    />
-                ))}
-            </div> 
+          <BasicTable/>
         </Tab.Panel>
         <Tab.Panel>
             <Form/>
