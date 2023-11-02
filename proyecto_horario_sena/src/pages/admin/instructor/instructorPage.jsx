@@ -6,6 +6,7 @@ import { Form } from '../../../components/form/Form';
 import LayoutPage from '../../../layouts/LayoutPage';
 import BasicTable from './components/UI/Table/table';
 import { ModalInstructor } from './components/UI/modal/modal';
+import { FormInstructor } from './components/UI/form/form';
 
 
 
@@ -21,7 +22,7 @@ export const InstructorPage = () => {
           <BasicTable/>
         </Tab.Panel>
         <Tab.Panel>
-            <Form/>
+          <FormInstructor/>
         </Tab.Panel>
       </Tab.Panels>
     </LayoutPage>

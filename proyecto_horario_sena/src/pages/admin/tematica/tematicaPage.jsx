@@ -12,7 +12,7 @@ export const TematicaPage = () => {
   const datos = tematicaData()
 
   return (
-    <LayoutPage title={`TEMATICA (${datos.length})`}>
+    <LayoutPage title={`TEMATICAS (${datos.length})`}>
       <Tab.Panels>
         <Tab.Panel>
           <BasicTable/>
