@@ -7,9 +7,8 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
-import { usuarioData } from '../../../pages/admin/instructor/data/sendRequest';
-import BasicSelect from '../select/select';
 import BasicMenu from '../select/select';
+import { usuarioData } from '../../../data/sendRequest';
 
 function createData(name, calories, fat, carbs, protein) {
   return { name, calories, fat, carbs, protein };
@@ -22,7 +21,7 @@ export default function BasicTable() {
 
   return (
     <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 1650 }} aria-label="simple table">
+      <Table sx={{ minWidth: 1030}} aria-label="simple table">
         <TableHead>
           <TableRow>
             <TableCell>Nombre Instructor</TableCell>
@@ -41,12 +40,19 @@ export default function BasicTable() {
               <TableCell component="th" scope="row">
                 {row.nombreInstructor}
               </TableCell>
-              <TableCell align="right">{row.idInstructor}</TableCell>
+              <TableCell align="right">{row.id}</TableCell>
               <TableCell align="right">{row.estadoInstructor === 1 ? "Activo": "Inactivo"}</TableCell>
               <TableCell align="right">{row.horasSemanales}</TableCell>
               <TableCell align="right">{row.idTpoIdentificacionFK === 1 ? "Otro": "CC"}</TableCell>
               <TableCell align="right">
-                <BasicMenu/>
+                <BasicMenu 
+                  img={row.imagenInstructor}
+                  name={row.nombreInstructor}
+                  id={row.id}
+                  lastName={row.apellidoInstructor}
+                  weeklyHours={row.horasSemanales}
+                  idType={row.idTpoIdentificacionFK}
+                  />
               </TableCell>
             </TableRow>
           ))}

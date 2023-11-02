@@ -6,7 +6,7 @@ export const tematicaData = () => {
   const [datos, setDatos] = useState([])
 
   useEffect(()=>{
-      const endpoint = 'tematicas';
+      const endpoint = 'tematica';
 
       getDataFromEndpoin(endpoint)
       .then((data)=>{

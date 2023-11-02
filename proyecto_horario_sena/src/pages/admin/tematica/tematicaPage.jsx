@@ -4,6 +4,7 @@ import {tematicaData } from './data/sendRequest';
 import { Tab } from '@headlessui/react'
 import { Card } from '../../../components/cards/Card';
 import LayoutPage from '../../../layouts/LayoutPage';
+import BasicTable from './components/UI/Table/table';
 
 
 
@@ -11,21 +12,10 @@ export const TematicaPage = () => {
   const datos = tematicaData()
 
   return (
-    <LayoutPage title="TEMATICAS">
+    <LayoutPage title={`TEMATICA (${datos.length})`}>
       <Tab.Panels>
         <Tab.Panel>
-            <div className="flex items-center justify-center gap-6 flex-wrap">
-                {datos.map((dato)=>(
-                  <Card 
-                    key={dato.id}
-                    title={dato.name} 
-                    info={dato.info} 
-                    img={dato.img}
-                    textColor={0}
-                    id={dato.id}
-                    />
-                ))}
-            </div> 
+          <BasicTable/>
         </Tab.Panel>
         <Tab.Panel>
             tab 3

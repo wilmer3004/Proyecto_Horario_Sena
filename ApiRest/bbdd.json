@@ -108,7 +108,7 @@
     ],
     "instructor":[
       {
-        "idInstructor":1,
+        "id":"321458asd3e3f41asdf23a1s8f",
         "nombreInstructor":"Margarita",
         "apellidoInstructor":"Zarsa",
         "estadoInstructor":1,
@@ -117,16 +117,16 @@
         "idTpoIdentificacionFK":1
       },
       {
-        "idInstructor":"2",
+        "id":2,
         "nombreInstructor":"Luis",
         "apellidoInstructor":"Zarsa",
         "estadoInstructor":0,
         "horasSemanales":"28",
-        "imagenInstructor":"https://img.freepik.com/foto-gratis/estudiante-acertado-feliz-que-presenta-brazos-cruzados_1262-17395.jpg",
+        "imagenInstructor":"https://img.freepik.com/foto-gratis/feliz-joven_1098-20869.jpg",
         "idTpoIdentificacionFK":1
       },
       {
-        "idInstructor":"3",
+        "id":"3",
         "nombreInstructor":"Alexnader",
         "apellidoInstructor":"Zarsa",
         "estadoInstructor":1,
@@ -135,7 +135,7 @@
         "idTpoIdentificacionFK":1
       },
       {
-        "idInstructor":"3",
+        "id":"3",
         "nombreInstructor":"Alexnader",
         "apellidoInstructor":"Zarsa",
         "estadoInstructor":1,
@@ -144,7 +144,7 @@
         "idTpoIdentificacionFK":1
       },
       {
-        "idInstructor":"4",
+        "id":"4",
         "nombreInstructor":"Pedro",
         "apellidoInstructor":"Zarsa",
         "estadoInstructor":1,
@@ -172,7 +172,7 @@
     "tematica":[
       {
         "idTematica":1,
-        "nombreTematica":"Puthon",
+        "nombreTematica":"Python",
         "descripcionTematica":"Alguna descripcion sobre la tematica",
         "horasMaximasM":"48",
         "horasMaxmasS":"12",
@@ -189,13 +189,33 @@
         "trimestre":"2",
         "estadoTematica":1,
         "idProgramaFK":1
+      },
+      {
+        "idTematica":"3",
+        "nombreTematica":"React y Angular",
+        "descripcionTematica":"Alguna descripcion sobre la tematica",
+        "horasMaximasM":"48",
+        "horasMaxmasS":"12",
+        "trimestre":"2",
+        "estadoTematica":1,
+        "idProgramaFK":1
+      },
+      {
+        "idTematica":"4",
+        "nombreTematica":"Kotlin",
+        "descripcionTematica":"Alguna descripcion sobre la tematica",
+        "horasMaximasM":"48",
+        "horasMaxmasS":"12",
+        "trimestre":"2",
+        "estadoTematica":1,
+        "idProgramaFK":1
       }
     ],
     "tematicaInstructor":[
       {
         "idTematicaInstructor":1,
         "idTematicaFK":1,
-        "idInstructorFK":1
+        "idFK":1
       }
     ],
     "jornada":[
@@ -230,7 +250,7 @@
         "estadoBloque":1,
         "idAmbienteFK":1,
         "idFichaFK":1,
-        "idInstructorFK":1,
+        "idFK":1,
         "idSedeFK":1,
         "idJornadaFK":1,
         "idTrimestreFK":1,

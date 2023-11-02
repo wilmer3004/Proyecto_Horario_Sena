@@ -2,10 +2,11 @@ import React from 'react'
 import { usuarioData } from './data/sendRequest';
 
 import { Tab } from '@headlessui/react'
-import { Card } from '../../../components/cards/Card';
-import LayoutPage from '../../../layouts/LayoutPage';
 import { Form } from '../../../components/form/Form';
-import BasicTable from '../../../components/UI/Table/table';
+import LayoutPage from '../../../layouts/LayoutPage';
+import BasicTable from './components/UI/Table/table';
+import { ModalInstructor } from './components/UI/modal/modal';
+
 
 
 
@@ -14,6 +15,7 @@ export const InstructorPage = () => {
 
   return (
     <LayoutPage title={`INSTRUCTORES (${datos.length})`}>
+      <ModalInstructor/>
       <Tab.Panels>
         <Tab.Panel>
           <BasicTable/>

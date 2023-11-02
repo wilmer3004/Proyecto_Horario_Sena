@@ -2,6 +2,7 @@ import * as React from 'react';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import { ModalInstructor } from '../modal/modal';
 import { 
     RiMore2Fill,
     RiPencilLine,
@@ -9,15 +10,38 @@ import {
     RiDeleteBin7Line
  } from "react-icons/ri";
 
-export default function BasicMenu() {
+export default function BasicMenu({
+  img,
+  name,
+  id,
+  lastName,
+  weeklyHours,
+  idType
+}) {
+  
+  const [open, setOpen] = React.useState(false)
+  const [openModal, setOpenModal]= React.useState(false)
+
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const open = Boolean(anchorEl);
+  const openBasic = Boolean(anchorEl);
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
+    setOpen(true)
   };
+
   const handleClose = () => {
     setAnchorEl(null);
+    setOpen(false)
   };
+
+  const handleopenModal = ()=>{
+    setOpenModal(true)
+    handleClose();
+  }
+
+
+
 
   return (
     <div>
@@ -39,10 +63,20 @@ export default function BasicMenu() {
           'aria-labelledby': 'basic-button',
         }}
       >
-        <MenuItem onClick={handleClose}><RiPencilLine/>Actualizar</MenuItem>
+        <MenuItem onClick={handleopenModal}><RiPencilLine/>Actualizar</MenuItem>
         <MenuItem onClick={handleClose}><RiFileCopyLine/>Copiar id</MenuItem>
         <MenuItem className='text-red-600 bg-blue-500' onClick={handleClose}><RiDeleteBin7Line/>Eliminar</MenuItem>
       </Menu>
+      <ModalInstructor 
+        open={openModal} 
+        handleClose={()=> setOpenModal(false)} 
+        img={img}
+        id={id}
+        name={name}
+        lastName={lastName}
+        weeklyHours={weeklyHours}
+        idType={idType}
+      />
     </div>
   );
 }

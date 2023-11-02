@@ -17,10 +17,9 @@ const LayoutPage = ({title, children})=>{
     return(
     <Tab.Group>
         <div className="flex items-center justify-center font-bold tracking-wide text-gray-600 gap-4 flex-wrap">
-            <div className="flex flex-col md:flex-row text-center items-center justify-center md:justify-between gap-4 p-4 bg-gray-300/30 rounded-lg w-full">
+            <div className="flex flex-col md:flex-row text-center items-center justify-center md:justify-between gap-4 p-4 border-b-2 border-gray-300 w-full">
                 <div className="flex items-center flex-col md:flex-row">
-                    <RiBuilding4Line className="w-16 h-16 text-secondary-900"/>
-                    <h1 className="uppercase p-4 text-2xl md:text-3xl text-secondary-900 text-center md:text-start ">{title}</h1>
+                    <h1 className="uppercase p-Y-4 text-3xl md:text-4xl text-secondary-900 text-center md:text-start ">{title}</h1>
                 </div>
                 <Tab.List className="flex items-center justify-start gap-3 text-secondary-900 ">
                     <Tab
