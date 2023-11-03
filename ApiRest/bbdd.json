@@ -1,262 +1,287 @@
 {
-    "localidad":[
-      {
-        "id":1, 
-        "nombreLocalidad":"Usaquén"
-      },
-      {
-        "id":"2", 
-        "nombreLocalidad":"Chapinero"
-      }
-    ],
-    "sede":[
-      {
-        "idSede": 1, 
-        "noombreSede":"SENA CGMLTI", 
-        "direccionSede": "Cl. 52 #13 65, Bogotá", 
-        "estadoSede":1, 
-        "imagenSede":"https://lh5.googleusercontent.com/p/AF1QipNjbxKjSgdYd0MjtGLkVOmpq4GtLQx8rnIyP063=w408-h306-k-no", 
-        "idLocalidadFk": "2"
-      },
-      {
-        "idSede": "2", 
-        "noombreSede":"SENA CGMLTI", 
-        "direccionSede": "Cl. 52 #13 65, Bogotá", 
-        "estadoSede":1, 
-        "imagenSede":"https://lh5.googleusercontent.com/p/AF1QipNjbxKjSgdYd0MjtGLkVOmpq4GtLQx8rnIyP063=w408-h306-k-no", 
-        "idLocalidadFk": "2"
-      }
-    ],
-    "ambiente":[
-      {
-        "idAmbiente":1,
-        "numeroAmbiente": 203,
-        "horasDisponibles": 4,
-        "estadoAmbiente":1,
-        "idSedeFk":1
-      },
-      {
-        "idAmbiente":1,
-        "numeroAmbiente": 203,
-        "horasDisponibles": 4,
-        "estadoAmbiente":1,
-        "idSedeFk":1
-      },
-      {
-        "idAmbiente":1,
-        "numeroAmbiente": 203,
-        "horasDisponibles": 4,
-        "estadoAmbiente":1,
-        "idSedeFk":1
-      }
-    ],
-    "programa":[
-      {
-        "idPrograma":1,
-        "nombrePrograma":"ADSO",
-        "descripcionProgram":"Cualquier descripción",
-        "versionPrograma":"v1.0",
-        "estadoPrograma":1
-      }
-    ],
-    "rol":[
-      {
-        "idRol":1,
-        "nombreRol":"Administrador", 
-        "estadoRol":1
-      },
-      {
-        "idRol":"2", 
-        "nombreRol":"Instructor", 
-        "estadoRol":1
-      }
-    ],
-    "tipoIdentificacion":[
-      {
-        "idTipoIdentificacion": 1, 
-        "nombreTipoIdentificacion":"Cedula Ciudadania",
-        "estadoTipoIdentificacion":1
-      }
-    ],
-    "usuario":[
-      {
-        "idUsuario":1,
-        "numeroIdent":"1234565",
-        "nombreUsuario":"Margarita",
-        "apellidoUsuario":"Zarza",
-        "correoUsuario":"margzarza@gmail.com",
-        "telefonoUsuario":"123456789",
-        "contrasenaUsuario":"margarita123",
-        "estadoUsuario":1,
-        "imagenUsuario":"https://img.freepik.com/foto-gratis/estudiante-acertado-feliz-que-presenta-brazos-cruzados_1262-17395.jpg",
-        "idRolFk":"2",
-        "idTpoIdentificacionFK":1
-      },
-      {
-        "idUsuario":1,
-        "numeroIdent":"1234565",
-        "nombreUsuario":"Margarita",
-        "apellidoUsuario":"Zarza",
-        "correoUsuario":"margzarza@gmail.com",
-        "telefonoUsuario":"123456789",
-        "contrasenaUsuario":"margarita123",
-        "estadoUsuario":1,
-        "imagenUsuario":"https://img.freepik.com/foto-gratis/estudiante-acertado-feliz-que-presenta-brazos-cruzados_1262-17395.jpg",
-        "idRolFk":"2",
-        "idTpoIdentificacionFK":1
-      }
-    ],
-    "instructor":[
-      {
-        "id":"321458asd3e3f41asdf23a1s8f",
-        "nombreInstructor":"Margarita",
-        "apellidoInstructor":"Zarsa",
-        "estadoInstructor":1,
-        "horasSemanales":"28",
-        "imagenInstructor":"https://img.freepik.com/foto-gratis/estudiante-acertado-feliz-que-presenta-brazos-cruzados_1262-17395.jpg",
-        "idTpoIdentificacionFK":1
-      },
-      {
-        "id":2,
-        "nombreInstructor":"Luis",
-        "apellidoInstructor":"Zarsa",
-        "estadoInstructor":0,
-        "horasSemanales":"28",
-        "imagenInstructor":"https://img.freepik.com/foto-gratis/feliz-joven_1098-20869.jpg",
-        "idTpoIdentificacionFK":1
-      },
-      {
-        "id":"3",
-        "nombreInstructor":"Alexnader",
-        "apellidoInstructor":"Zarsa",
-        "estadoInstructor":1,
-        "horasSemanales":"28",
-        "imagenInstructor":"https://img.freepik.com/foto-gratis/estudiante-acertado-feliz-que-presenta-brazos-cruzados_1262-17395.jpg",
-        "idTpoIdentificacionFK":1
-      },
-      {
-        "id":"3",
-        "nombreInstructor":"Alexnader",
-        "apellidoInstructor":"Zarsa",
-        "estadoInstructor":1,
-        "horasSemanales":"28",
-        "imagenInstructor":"https://img.freepik.com/foto-gratis/estudiante-acertado-feliz-que-presenta-brazos-cruzados_1262-17395.jpg",
-        "idTpoIdentificacionFK":1
-      },
-      {
-        "id":"4",
-        "nombreInstructor":"Pedro",
-        "apellidoInstructor":"Zarsa",
-        "estadoInstructor":1,
-        "horasSemanales":"28",
-        "imagenInstructor":"https://img.freepik.com/foto-gratis/estudiante-acertado-feliz-que-presenta-brazos-cruzados_1262-17395.jpg",
-        "idTpoIdentificacionFK":1
-      }
-    ],
-    "trimestre":[
-      {
-        "idTrimestre":1,
-        "nombreTrimestre":"Trimestre 1",
-        "fechaInicio":"12/12/2023",
-        "fechaFin":"12/12/2024",
-        "estadoTrimestre":1
-      },
-      {
-        "idTrimestre":"2",
-        "nombreTrimestre":"Trimestre 2",
-        "fechaInicio":"12/12/2023",
-        "fechaFin":"12/12/2024",
-        "estadoTrimestre":1
-      }
-    ],
-    "tematica":[
-      {
-        "idTematica":1,
-        "nombreTematica":"Python",
-        "descripcionTematica":"Alguna descripcion sobre la tematica",
-        "horasMaximasM":"48",
-        "horasMaxmasS":"12",
-        "trimestre":"2",
-        "estadoTematica":1,
-        "idProgramaFK":1
-      },
-      {
-        "idTematica":"2",
-        "nombreTematica":"javaScript",
-        "descripcionTematica":"Alguna descripcion sobre la tematica",
-        "horasMaximasM":"48",
-        "horasMaxmasS":"12",
-        "trimestre":"2",
-        "estadoTematica":1,
-        "idProgramaFK":1
-      },
-      {
-        "idTematica":"3",
-        "nombreTematica":"React y Angular",
-        "descripcionTematica":"Alguna descripcion sobre la tematica",
-        "horasMaximasM":"48",
-        "horasMaxmasS":"12",
-        "trimestre":"2",
-        "estadoTematica":1,
-        "idProgramaFK":1
-      },
-      
-      {
-        "idTematica":"4",
-        "nombreTematica":"Kotlin",
-        "descripcionTematica":"Alguna descripcion sobre la tematica",
-        "horasMaximasM":"48",
-        "horasMaxmasS":"12",
-        "trimestre":"2",
-        "estadoTematica":1,
-        "idProgramaFK":1
-      }
-    ],
-    "tematicaInstructor":[
-      {
-        "idTematicaInstructor":1,
-        "idTematicaFK":1,
-        "idFK":1
-      }
-    ],
-    "jornada":[
-      {
-        "idJornada":1,
-        "nombreJornada":"Diurna",
-        "diaIniJor":"Enero 1",
-        "diaFinJor":"Diciembre 12",
-        "estadoJornada":1
-      }
-    ],
-    "ficha":[
-      {
-        "idFicha":1,
-        "nombreFicha":"202323",
-        "estadoFicha":1,
-        "idProgramaFK":1,
-        "idJornadaFK":1
-      },
-      {
-        "idFicha":"2",
-        "nombreFicha":"202324",
-        "estadoFicha":1,
-        "idProgramaFK":1,
-        "idJornadaFK":1
-      }
-    ],
-    "bloque":[
-      {
-        "idBloque":1,
-        "idPosicion":1,
-        "estadoBloque":1,
-        "idAmbienteFK":1,
-        "idFichaFK":1,
-        "idFK":1,
-        "idSedeFK":1,
-        "idJornadaFK":1,
-        "idTrimestreFK":1,
-        "idTematicaFK":1
-      }
-    ]
-
+  "localidad": [
+    {
+      "id": 1,
+      "nombreLocalidad": "Usaquén"
+    },
+    {
+      "id": "2",
+      "nombreLocalidad": "Chapinero"
+    }
+  ],
+  "sede": [
+    {
+      "idSede": 1,
+      "noombreSede": "SENA CGMLTI",
+      "direccionSede": "Cl. 52 #13 65, Bogotá",
+      "estadoSede": 1,
+      "imagenSede": "https://lh5.googleusercontent.com/p/AF1QipNjbxKjSgdYd0MjtGLkVOmpq4GtLQx8rnIyP063=w408-h306-k-no",
+      "idLocalidadFk": "2"
+    },
+    {
+      "idSede": "2",
+      "noombreSede": "SENA CGMLTI",
+      "direccionSede": "Cl. 52 #13 65, Bogotá",
+      "estadoSede": 1,
+      "imagenSede": "https://lh5.googleusercontent.com/p/AF1QipNjbxKjSgdYd0MjtGLkVOmpq4GtLQx8rnIyP063=w408-h306-k-no",
+      "idLocalidadFk": "2"
+    }
+  ],
+  "ambiente": [
+    {
+      "idAmbiente": 1,
+      "numeroAmbiente": 203,
+      "horasDisponibles": 4,
+      "estadoAmbiente": 1,
+      "idSedeFk": 1
+    },
+    {
+      "idAmbiente": 1,
+      "numeroAmbiente": 203,
+      "horasDisponibles": 4,
+      "estadoAmbiente": 1,
+      "idSedeFk": 1
+    },
+    {
+      "idAmbiente": 1,
+      "numeroAmbiente": 203,
+      "horasDisponibles": 4,
+      "estadoAmbiente": 1,
+      "idSedeFk": 1
+    }
+  ],
+  "programa": [
+    {
+      "idPrograma": 1,
+      "nombrePrograma": "ADSO",
+      "descripcionProgram": "Cualquier descripción",
+      "versionPrograma": "v1.0",
+      "estadoPrograma": 1
+    }
+  ],
+  "rol": [
+    {
+      "idRol": 1,
+      "nombreRol": "Administrador",
+      "estadoRol": 1
+    },
+    {
+      "idRol": "2",
+      "nombreRol": "Instructor",
+      "estadoRol": 1
+    }
+  ],
+  "tipoIdentificacion": [
+    {
+      "idTipoIdentificacion": 1,
+      "nombreTipoIdentificacion": "Cedula Ciudadania",
+      "estadoTipoIdentificacion": 1
+    }
+  ],
+  "usuario": [
+    {
+      "idUsuario": 1,
+      "numeroIdent": "1234565",
+      "nombreUsuario": "Margarita",
+      "apellidoUsuario": "Zarza",
+      "correoUsuario": "margzarza@gmail.com",
+      "telefonoUsuario": "123456789",
+      "contrasenaUsuario": "margarita123",
+      "estadoUsuario": 1,
+      "imagenUsuario": "https://img.freepik.com/foto-gratis/estudiante-acertado-feliz-que-presenta-brazos-cruzados_1262-17395.jpg",
+      "idRolFk": "2",
+      "idTpoIdentificacionFK": 1
+    },
+    {
+      "idUsuario": 1,
+      "numeroIdent": "1234565",
+      "nombreUsuario": "Margarita",
+      "apellidoUsuario": "Zarza",
+      "correoUsuario": "margzarza@gmail.com",
+      "telefonoUsuario": "123456789",
+      "contrasenaUsuario": "margarita123",
+      "estadoUsuario": 1,
+      "imagenUsuario": "https://img.freepik.com/foto-gratis/estudiante-acertado-feliz-que-presenta-brazos-cruzados_1262-17395.jpg",
+      "idRolFk": "2",
+      "idTpoIdentificacionFK": 1
+    }
+  ],
+  "instructor": [
+    {
+      "id": "321458asd3e3f41asdf23a1s8f",
+      "nombreInstructor": "Margarita",
+      "apellidoInstructor": "Zarsa",
+      "estadoInstructor": 1,
+      "horasSemanales": "28",
+      "imagenInstructor": "https://img.freepik.com/foto-gratis/estudiante-acertado-feliz-que-presenta-brazos-cruzados_1262-17395.jpg",
+      "idTpoIdentificacionFK": 1
+    },
+    {
+      "id": 2,
+      "nombreInstructor": "Luis",
+      "apellidoInstructor": "Zarsa",
+      "estadoInstructor": 0,
+      "horasSemanales": "28",
+      "imagenInstructor": "https://img.freepik.com/foto-gratis/feliz-joven_1098-20869.jpg",
+      "idTpoIdentificacionFK": 1
+    },
+    {
+      "id": "3",
+      "nombreInstructor": "Alexnader",
+      "apellidoInstructor": "Zarsa",
+      "estadoInstructor": 1,
+      "horasSemanales": "28",
+      "imagenInstructor": "https://img.freepik.com/foto-gratis/estudiante-acertado-feliz-que-presenta-brazos-cruzados_1262-17395.jpg",
+      "idTpoIdentificacionFK": 1
+    },
+    {
+      "id": "3",
+      "nombreInstructor": "Alexnader",
+      "apellidoInstructor": "Zarsa",
+      "estadoInstructor": 1,
+      "horasSemanales": "28",
+      "imagenInstructor": "https://img.freepik.com/foto-gratis/estudiante-acertado-feliz-que-presenta-brazos-cruzados_1262-17395.jpg",
+      "idTpoIdentificacionFK": 1
+    },
+    {
+      "id": "4",
+      "nombreInstructor": "Pedro",
+      "apellidoInstructor": "Zarsa",
+      "estadoInstructor": 1,
+      "horasSemanales": "28",
+      "imagenInstructor": "https://img.freepik.com/foto-gratis/estudiante-acertado-feliz-que-presenta-brazos-cruzados_1262-17395.jpg",
+      "idTpoIdentificacionFK": 1
+    },
+    {
+      "nombreInstructor": "David",
+      "apellidoInstructor": "Vergara",
+      "estadoInstructor": 1,
+      "horasSemanales": "48",
+      "imagenInstructor": "https://img.freepik.com/foto-gratis/apuesto-joven-afroamericano-camiseta-caqui_176420-32048.jpg",
+      "idTrimestre": "2",
+      "id": "7A3IxH7"
+    },
+    {
+      "nombreInstructor": "Alejandro",
+      "apellidoInstructor": "Revolledo",
+      "estadoInstructor": 0,
+      "horasSemanales": "28",
+      "imagenInstructor": "https://img.freepik.com/foto-gratis/apuesto-joven-afroamericano-camiseta-caqui_176420-32048.jpg",
+      "idTrimestre": "2",
+      "id": "pbop7qn"
+    },
+    {
+      "nombreInstructor": "Enrique",
+      "apellidoInstructor": "Atencia",
+      "estadoInstructor": 0,
+      "horasSemanales": "48",
+      "imagenInstructor": "https://img.freepik.com/foto-gratis/apuesto-joven-afroamericano-camiseta-caqui_176420-32048.jpg",
+      "idTrimestre": "2",
+      "id": "BtB-GgG"
+    }
+  ],
+  "trimestre": [
+    {
+      "idTrimestre": 1,
+      "nombreTrimestre": "Trimestre 1",
+      "fechaInicio": "12/12/2023",
+      "fechaFin": "12/12/2024",
+      "estadoTrimestre": 1
+    },
+    {
+      "idTrimestre": "2",
+      "nombreTrimestre": "Trimestre 2",
+      "fechaInicio": "12/12/2023",
+      "fechaFin": "12/12/2024",
+      "estadoTrimestre": 1
+    }
+  ],
+  "tematica": [
+    {
+      "idTematica": 1,
+      "nombreTematica": "Python",
+      "descripcionTematica": "Alguna descripcion sobre la tematica",
+      "horasMaximasM": "48",
+      "horasMaxmasS": "12",
+      "trimestre": "2",
+      "estadoTematica": 1,
+      "idProgramaFK": 1
+    },
+    {
+      "idTematica": "2",
+      "nombreTematica": "javaScript",
+      "descripcionTematica": "Alguna descripcion sobre la tematica",
+      "horasMaximasM": "48",
+      "horasMaxmasS": "12",
+      "trimestre": "2",
+      "estadoTematica": 1,
+      "idProgramaFK": 1
+    },
+    {
+      "idTematica": "3",
+      "nombreTematica": "React y Angular",
+      "descripcionTematica": "Alguna descripcion sobre la tematica",
+      "horasMaximasM": "48",
+      "horasMaxmasS": "12",
+      "trimestre": "2",
+      "estadoTematica": 1,
+      "idProgramaFK": 1
+    },
+    {
+      "idTematica": "4",
+      "nombreTematica": "Kotlin",
+      "descripcionTematica": "Alguna descripcion sobre la tematica",
+      "horasMaximasM": "48",
+      "horasMaxmasS": "12",
+      "trimestre": "2",
+      "estadoTematica": 1,
+      "idProgramaFK": 1
+    }
+  ],
+  "tematicaInstructor": [
+    {
+      "idTematicaInstructor": 1,
+      "idTematicaFK": 1,
+      "idFK": 1
+    }
+  ],
+  "jornada": [
+    {
+      "idJornada": 1,
+      "nombreJornada": "Diurna",
+      "diaIniJor": "Enero 1",
+      "diaFinJor": "Diciembre 12",
+      "estadoJornada": 1
+    }
+  ],
+  "ficha": [
+    {
+      "idFicha": 1,
+      "nombreFicha": "202323",
+      "estadoFicha": 1,
+      "idProgramaFK": 1,
+      "idJornadaFK": 1
+    },
+    {
+      "idFicha": "2",
+      "nombreFicha": "202324",
+      "estadoFicha": 1,
+      "idProgramaFK": 1,
+      "idJornadaFK": 1
+    }
+  ],
+  "bloque": [
+    {
+      "idBloque": 1,
+      "idPosicion": 1,
+      "estadoBloque": 1,
+      "idAmbienteFK": 1,
+      "idFichaFK": 1,
+      "idFK": 1,
+      "idSedeFK": 1,
+      "idJornadaFK": 1,
+      "idTrimestreFK": 1,
+      "idTematicaFK": 1
+    }
+  ]
 }

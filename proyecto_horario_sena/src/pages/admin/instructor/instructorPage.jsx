@@ -2,11 +2,10 @@ import React from 'react'
 import { usuarioData } from './data/sendRequest';
 
 import { Tab } from '@headlessui/react'
-import { Form } from '../../../components/form/Form';
 import LayoutPage from '../../../layouts/LayoutPage';
 import BasicTable from './components/UI/Table/table';
 import { ModalInstructor } from './components/UI/modal/modal';
-import { FormInstructor } from './components/UI/form/form';
+import { FormInstructor } from './form/form';
 
 
 

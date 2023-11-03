@@ -9,7 +9,6 @@ import DialogActions from '@mui/material/DialogActions';
 import Divider from '@mui/material/Divider';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
-import { postDataToEndpoint } from '../../../../../../utils/httpRequest';
 
 export const ModalInstructor = ({
   open, 

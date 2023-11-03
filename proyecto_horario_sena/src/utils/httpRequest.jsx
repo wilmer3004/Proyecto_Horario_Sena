@@ -11,11 +11,3 @@ export const getDataFromEndpoin = async (endpoint) => {
   }
 };
 
-export const postDataToEndpoint = async (endpoint, data) => {
-  try {
-    const response = await axios.post(`http://localhost:3000/${endpoint}`, data);
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
-};
