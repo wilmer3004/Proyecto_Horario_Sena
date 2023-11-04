@@ -6,24 +6,25 @@ import { ModalInstructor } from '../modal/modal';
 import { 
     RiMore2Fill,
     RiPencilLine,
-    RiFileCopyLine,
     RiDeleteBin7Line
  } from "react-icons/ri";
+import { ModalDelet } from '../modal/modalDelet';
 
 export default function BasicMenu({
-  img,
-  name,
-  id,
-  lastName,
-  weeklyHours,
-  idType
+  id, 
+  nombreInstructor,
+  apellidoInstructor,
+  estadoInstructor,
+  horasSemanales,
+  imagenInstructor,
 }) {
   
   const [open, setOpen] = React.useState(false)
   const [openModal, setOpenModal]= React.useState(false)
 
+  const [openModalDelet, setOpenModalDelet]= React.useState(false)
+
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const openBasic = Boolean(anchorEl);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -40,8 +41,10 @@ export default function BasicMenu({
     handleClose();
   }
 
-
-
+  const handleopenModalDelet = ()=>{
+    setOpenModalDelet(true)
+    handleClose();
+  }
 
   return (
     <div>
@@ -63,19 +66,24 @@ export default function BasicMenu({
           'aria-labelledby': 'basic-button',
         }}
       >
-        <MenuItem onClick={handleopenModal}><RiPencilLine/>Actualizar</MenuItem>
-        <MenuItem onClick={handleClose}><RiFileCopyLine/>Copiar id</MenuItem>
-        <MenuItem className='text-red-600 bg-blue-500' onClick={handleClose}><RiDeleteBin7Line/>Eliminar</MenuItem>
+        <MenuItem onClick={handleopenModal}><span className='mx-2'><RiPencilLine/></span>Actualizar</MenuItem>
+        <MenuItem onClick={handleopenModalDelet}><span className='mx-2 text-red-500'><RiDeleteBin7Line/></span>Eliminar</MenuItem>
       </Menu>
       <ModalInstructor 
         open={openModal} 
         handleClose={()=> setOpenModal(false)} 
-        img={img}
         id={id}
-        name={name}
-        lastName={lastName}
-        weeklyHours={weeklyHours}
-        idType={idType}
+        imagenInstructor={imagenInstructor}
+        nombreInstructor={nombreInstructor}
+        apellidoInstructor={apellidoInstructor}
+        horasSemanales={horasSemanales}
+        estadoInstructor={estadoInstructor}
+      />
+      <ModalDelet
+        open={openModalDelet}
+        handleClose={()=> setOpenModalDelet(false)}
+        id={id}
+        nombreInstructor={nombreInstructor}
       />
     </div>
   );

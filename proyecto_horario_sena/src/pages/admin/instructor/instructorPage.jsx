@@ -5,7 +5,7 @@ import { Tab } from '@headlessui/react'
 import LayoutPage from '../../../layouts/LayoutPage';
 import BasicTable from './components/UI/Table/table';
 import { ModalInstructor } from './components/UI/modal/modal';
-import { FormInstructor } from './form/form';
+import { FormInstructor } from './components/UI/form/form';
 
 
 

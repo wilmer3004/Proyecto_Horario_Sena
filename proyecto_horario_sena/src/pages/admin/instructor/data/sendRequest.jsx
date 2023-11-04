@@ -45,3 +45,31 @@ export const crearInstructor = (
         })
     })
 }
+export const actializarInstgructor = (
+    id,
+    nombreInstructor,
+    apellidoInstructor,
+    estadoInstructor,
+    horasSemanales,
+    imagenInstructor,
+    idTpoIdentificacionFK
+) =>{
+    return fetch(`http://localhost:3000/instructor/${id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "aplication/json",
+        },
+        body: JSON.stringify({
+            id,
+            nombreInstructor,
+            apellidoInstructor,
+            estadoInstructor,
+            horasSemanales,
+            imagenInstructor,
+            idTpoIdentificacionFK
+        })
+        .then((response)=>console.log("Actualizado",response))
+        .catch((err)=>console.log("Error Actualizar", err))
+    })
+}
+

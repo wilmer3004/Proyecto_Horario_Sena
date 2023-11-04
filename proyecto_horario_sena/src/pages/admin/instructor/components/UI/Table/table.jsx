@@ -10,11 +10,6 @@ import Paper from '@mui/material/Paper';
 import BasicMenu from '../select/select';
 import { usuarioData } from '../../../data/sendRequest';
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
-}
-
-
 
 export default function BasicTable() {
     const rows = usuarioData()
@@ -46,12 +41,12 @@ export default function BasicTable() {
               <TableCell align="right">{row.idTpoIdentificacionFK === 1 ? "Otro": "CC"}</TableCell>
               <TableCell align="right">
                 <BasicMenu 
-                  img={row.imagenInstructor}
-                  name={row.nombreInstructor}
                   id={row.id}
-                  lastName={row.apellidoInstructor}
-                  weeklyHours={row.horasSemanales}
-                  idType={row.idTpoIdentificacionFK}
+                  imagenInstructor={row.imagenInstructor}
+                  nombreInstructor={row.nombreInstructor}
+                  apellidoInstructor={row.apellidoInstructor}
+                  horasSemanales={row.horasSemanales}
+                  estadoInstructor={row.estadoInstructor}
                   />
               </TableCell>
             </TableRow>

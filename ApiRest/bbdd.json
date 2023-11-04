@@ -108,76 +108,13 @@
   ],
   "instructor": [
     {
-      "id": "321458asd3e3f41asdf23a1s8f",
-      "nombreInstructor": "Margarita",
-      "apellidoInstructor": "Zarsa",
+      "nombreInstructor": "Test-1",
+      "apellidoInstructor": "Test-1",
       "estadoInstructor": 1,
-      "horasSemanales": "28",
-      "imagenInstructor": "https://img.freepik.com/foto-gratis/estudiante-acertado-feliz-que-presenta-brazos-cruzados_1262-17395.jpg",
-      "idTpoIdentificacionFK": 1
-    },
-    {
-      "id": 2,
-      "nombreInstructor": "Luis",
-      "apellidoInstructor": "Zarsa",
-      "estadoInstructor": 0,
-      "horasSemanales": "28",
-      "imagenInstructor": "https://img.freepik.com/foto-gratis/feliz-joven_1098-20869.jpg",
-      "idTpoIdentificacionFK": 1
-    },
-    {
-      "id": "3",
-      "nombreInstructor": "Alexnader",
-      "apellidoInstructor": "Zarsa",
-      "estadoInstructor": 1,
-      "horasSemanales": "28",
-      "imagenInstructor": "https://img.freepik.com/foto-gratis/estudiante-acertado-feliz-que-presenta-brazos-cruzados_1262-17395.jpg",
-      "idTpoIdentificacionFK": 1
-    },
-    {
-      "id": "3",
-      "nombreInstructor": "Alexnader",
-      "apellidoInstructor": "Zarsa",
-      "estadoInstructor": 1,
-      "horasSemanales": "28",
-      "imagenInstructor": "https://img.freepik.com/foto-gratis/estudiante-acertado-feliz-que-presenta-brazos-cruzados_1262-17395.jpg",
-      "idTpoIdentificacionFK": 1
-    },
-    {
-      "id": "4",
-      "nombreInstructor": "Pedro",
-      "apellidoInstructor": "Zarsa",
-      "estadoInstructor": 1,
-      "horasSemanales": "28",
-      "imagenInstructor": "https://img.freepik.com/foto-gratis/estudiante-acertado-feliz-que-presenta-brazos-cruzados_1262-17395.jpg",
-      "idTpoIdentificacionFK": 1
-    },
-    {
-      "nombreInstructor": "David",
-      "apellidoInstructor": "Vergara",
-      "estadoInstructor": 1,
-      "horasSemanales": "48",
-      "imagenInstructor": "https://img.freepik.com/foto-gratis/apuesto-joven-afroamericano-camiseta-caqui_176420-32048.jpg",
+      "horasSemanales": "00",
+      "imagenInstructor": "https://img.freepik.com/foto-gratis/vista-frontal-hombre-sonriente-posando-brazos-cruzados_23-2148692179.jpg",
       "idTrimestre": "2",
-      "id": "7A3IxH7"
-    },
-    {
-      "nombreInstructor": "Alejandro",
-      "apellidoInstructor": "Revolledo",
-      "estadoInstructor": 0,
-      "horasSemanales": "28",
-      "imagenInstructor": "https://img.freepik.com/foto-gratis/apuesto-joven-afroamericano-camiseta-caqui_176420-32048.jpg",
-      "idTrimestre": "2",
-      "id": "pbop7qn"
-    },
-    {
-      "nombreInstructor": "Enrique",
-      "apellidoInstructor": "Atencia",
-      "estadoInstructor": 0,
-      "horasSemanales": "48",
-      "imagenInstructor": "https://img.freepik.com/foto-gratis/apuesto-joven-afroamericano-camiseta-caqui_176420-32048.jpg",
-      "idTrimestre": "2",
-      "id": "BtB-GgG"
+      "id": 1
     }
   ],
   "trimestre": [
