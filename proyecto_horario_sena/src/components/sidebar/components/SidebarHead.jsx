@@ -15,7 +15,7 @@ export const SidebarHead = () => {
       </div>
       <div className='flex items-center gap-6 text-xl text-secondary-100 font-semibold tracking-wider cursor-pointer'>
         <RiHome3Line className="w-7 h-7"/>
-        <Link to="/login">HOME</Link>
+        <Link to="/Home">HOME</Link>
       </div>
     </div>  
   )

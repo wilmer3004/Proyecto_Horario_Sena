@@ -20,6 +20,24 @@ export const usuarioData = () => {
   return datos
 };
 
+export const tipoDocData = () => {
+    const [datos, setDatos] = useState([])
+  
+    useEffect(()=>{
+        const endpoint = 'tipoIdentificacion';
+  
+        getDataFromEndpoin(endpoint)
+        .then((data)=>{
+            setDatos(data)
+        })
+        .catch((error)=>{
+            console.log("[ERRORFETCH DATA]", error)
+        })
+    }, []);
+  
+    return datos
+  };
+
 export const crearInstructor = (
     id,
     nombreInstructor,

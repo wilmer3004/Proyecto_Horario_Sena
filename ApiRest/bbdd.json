@@ -73,8 +73,18 @@
   ],
   "tipoIdentificacion": [
     {
-      "idTipoIdentificacion": 1,
+      "id": 1,
       "nombreTipoIdentificacion": "Cedula Ciudadania",
+      "estadoTipoIdentificacion": 1
+    },
+    {
+      "id": 2,
+      "nombreTipoIdentificacion": "Tarjeta de Identidad",
+      "estadoTipoIdentificacion": 1
+    },
+    {
+      "id": 3,
+      "nombreTipoIdentificacion": "Cédula de Extranjería",
       "estadoTipoIdentificacion": 1
     }
   ],
@@ -108,13 +118,22 @@
   ],
   "instructor": [
     {
-      "nombreInstructor": "Test-1",
-      "apellidoInstructor": "Test-1",
-      "estadoInstructor": 1,
+      "nombreInstructor": "test-1",
+      "apellidoInstructor": "test",
+      "estadoInstructor": "1",
+      "horasSemanales": "28",
+      "imagenInstructor": "https://img.freepik.com/foto-gratis/vista-frontal-hombre-sonriente-posando-brazos-cruzados_23-2148692179.jpg",
+      "idTpoIdentificacionFK": "1",
+      "id": "b851dfb0-087a-43ce-ade3-dbaddd4f50af"
+    },
+    {
+      "nombreInstructor": "test-2",
+      "apellidoInstructor": "test-2",
+      "estadoInstructor": "1",
       "horasSemanales": "00",
       "imagenInstructor": "https://img.freepik.com/foto-gratis/vista-frontal-hombre-sonriente-posando-brazos-cruzados_23-2148692179.jpg",
-      "idTrimestre": "2",
-      "id": 1
+      "idTpoIdentificacionFK": "1",
+      "id": "649245b3-e218-453f-b2fd-59bb0d7aa191"
     }
   ],
   "trimestre": [

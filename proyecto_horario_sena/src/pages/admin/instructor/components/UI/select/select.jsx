@@ -1,23 +1,27 @@
 import * as React from 'react';
+import { ModalInstructor } from '../modal/modal';
+import { ModalDelet } from '../modal/modalDelet';
+
+
+
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import { ModalInstructor } from '../modal/modal';
 import { 
-    RiMore2Fill,
-    RiPencilLine,
-    RiDeleteBin7Line
- } from "react-icons/ri";
-import { ModalDelet } from '../modal/modalDelet';
+  RiMore2Fill,
+  RiPencilLine,
+  RiDeleteBin7Line
+} from "react-icons/ri";
 
-export default function BasicMenu({
+export const MenuInstructor = ({
   id, 
   nombreInstructor,
   apellidoInstructor,
   estadoInstructor,
   horasSemanales,
   imagenInstructor,
-}) {
+  idTpoIdentificacionFK,
+}) => {
   
   const [open, setOpen] = React.useState(false)
   const [openModal, setOpenModal]= React.useState(false)
@@ -69,6 +73,7 @@ export default function BasicMenu({
         <MenuItem onClick={handleopenModal}><span className='mx-2'><RiPencilLine/></span>Actualizar</MenuItem>
         <MenuItem onClick={handleopenModalDelet}><span className='mx-2 text-red-500'><RiDeleteBin7Line/></span>Eliminar</MenuItem>
       </Menu>
+      {/* Ventana modal que ejecuta el metodo put y deja actualizar el Instructor */}
       <ModalInstructor 
         open={openModal} 
         handleClose={()=> setOpenModal(false)} 
@@ -78,7 +83,9 @@ export default function BasicMenu({
         apellidoInstructor={apellidoInstructor}
         horasSemanales={horasSemanales}
         estadoInstructor={estadoInstructor}
+        idTpoIdentificacionFK={idTpoIdentificacionFK}
       />
+      {/* Ventana modale que deja eliminar al instructor  */}
       <ModalDelet
         open={openModalDelet}
         handleClose={()=> setOpenModalDelet(false)}

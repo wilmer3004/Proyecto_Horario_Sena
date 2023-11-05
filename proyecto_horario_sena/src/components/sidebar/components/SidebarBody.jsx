@@ -20,8 +20,8 @@ export const SidebarBody = () => {
           <Link to={item.to}>
             <li
               key={item.title}
-              className={`flex py-2 px-3 items-center gap-5 text-secondary-100 text-[15px] rounded-lg hover:bg-secondary-100 hover:text-primary transition-colors border-secondary-100 ${
-                activeItem === item ? 'bg-secondary-900 text-green-600' : ''
+              className={`flex py-2 px-3 items-center gap-5  text-[15px] rounded-lg hover:bg-secondary-100 hover:text-primary transition-colors border-secondary-100 ${
+                activeItem === item ? 'bg-secondary-100 text-primary' : 'text-secondary-100'
               }`}
               onClick={() => handleItemClick(item)}
             >

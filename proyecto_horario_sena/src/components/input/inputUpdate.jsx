@@ -28,10 +28,12 @@ export const InputLabel = ({
       </label>
       <input
         id={htmlId}
+        name={name}
         className="w-full p-2 font-normal rounded-sm shadow-md outline-none border"
         required
         type="text"
         value={value}
+        onChange={onChange}
         onFocus={() => setInputFocused(true)}
         onBlur={() => setInputFocused(false)}
         onInput={handleInput}
