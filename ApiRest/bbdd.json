@@ -195,7 +195,7 @@
   ],
   "jornada": [
     {
-      "idJornada": 1,
+      "id": 1,
       "nombreJornada": "Diurna",
       "diaIniJor": "Enero 1",
       "diaFinJor": "Diciembre 12",
@@ -204,14 +204,14 @@
   ],
   "ficha": [
     {
-      "idFicha": 1,
       "nombreFicha": "202323",
-      "estadoFicha": 1,
-      "idProgramaFK": 1,
-      "idJornadaFK": 1
+      "estadoFicha": "0",
+      "idProgramaFK": "1",
+      "idJornadaFK": 1,
+      "id": "1"
     },
     {
-      "idFicha": "2",
+      "id": "2",
       "nombreFicha": "202324",
       "estadoFicha": 1,
       "idProgramaFK": 1,
