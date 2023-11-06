@@ -1,11 +1,14 @@
 
 // sedeData viene de la carpeta data, la cual contiene el fetch del endpoint pasado por parametros
 
+import { useState } from "react";
+
 import { RiAddLine } from "react-icons/ri";
 import { Tab } from '@headlessui/react'
 
 
 const LayoutPage = ({title, children, desc})=>{
+    const [activeTab, setActiveTab] = useState(0);
 
     const handleTabClick = (index) => {
       setActiveTab(index);
@@ -41,4 +44,3 @@ const LayoutPage = ({title, children, desc})=>{
 }
 
 export default LayoutPage;
-

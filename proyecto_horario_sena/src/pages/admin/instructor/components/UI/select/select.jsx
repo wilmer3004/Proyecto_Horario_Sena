@@ -8,7 +8,7 @@ import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { 
-  RiMore2Fill,
+  RiMoreLine,
   RiPencilLine,
   RiDeleteBin7Line
 } from "react-icons/ri";
@@ -59,7 +59,7 @@ export const MenuInstructor = ({
         aria-expanded={open ? 'true' : undefined}
         onClick={handleClick}
       >
-        <RiMore2Fill/>
+        <RiMoreLine className='text-lg text-primary'/>
       </Button>
       <Menu
         id="basic-menu"

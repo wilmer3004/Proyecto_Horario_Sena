@@ -29,7 +29,7 @@ export const InputLabel = ({
       <input
         id={htmlId}
         name={name}
-        className="w-full p-2 font-normal rounded-sm shadow-md outline-none border"
+        className="w-full p-2 font-normal rounded-md shadow-md outline-none border"
         required
         type="text"
         value={value}

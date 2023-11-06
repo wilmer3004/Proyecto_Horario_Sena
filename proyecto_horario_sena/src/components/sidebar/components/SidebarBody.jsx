@@ -17,10 +17,9 @@ export const SidebarBody = () => {
       <div>
         <ul className='w-full flex flex-col gap-4'>
         {items.map((item) => (
-          <Link to={item.to}>
+          <Link key={item.title} to={item.to}>
             <li
-              key={item.title}
-              className={`flex py-2 px-3 items-center gap-5  text-[15px] rounded-lg hover:bg-secondary-100 hover:text-primary transition-colors border-secondary-100 ${
+              className={`flex py-2 px-3 items-center gap-5  text-[15px] rounded-md hover:bg-secondary-100 hover:text-primary transition-colors border-secondary-100 ${
                 activeItem === item ? 'bg-secondary-100 text-primary' : 'text-secondary-100'
               }`}
               onClick={() => handleItemClick(item)}
@@ -28,7 +27,7 @@ export const SidebarBody = () => {
               {item.icono}
               {item.title}
             </li>
-        </Link>
+          </Link>
       ))}
         </ul>
       </div>

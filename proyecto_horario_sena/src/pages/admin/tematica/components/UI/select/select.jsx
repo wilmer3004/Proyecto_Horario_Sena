@@ -1,30 +1,33 @@
 import * as React from 'react';
+import { ModalTematica } from '../modal/modal';
+import { ModalDelet } from '../modal/modalDelet';
+
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import { ModalTematica } from '../modal/modal';
 import { 
-    RiMore2Fill,
-    RiPencilLine,
-    RiFileCopyLine,
-    RiDeleteBin7Line
- } from "react-icons/ri";
+  RiMoreLine,
+  RiPencilLine,
+  RiDeleteBin7Line
+} from "react-icons/ri";
 
-export default function BasicMenu({
-  name,
-  id,
-  descr,
-  maxHoursM,
-  maxHoursS,
-  quarter
-
-}) {
+export const MenuTematica = ({
+  id, 
+  nombreTematica,
+  descripcionTematica,
+  horasMaximasM,
+  horasMaximasS,
+  trimestre,
+  estadoTematica,
+  idProgramaFK
+}) => {
   
   const [open, setOpen] = React.useState(false)
   const [openModal, setOpenModal]= React.useState(false)
 
+  const [openModalDelet, setOpenModalDelet]= React.useState(false)
+
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const openBasic = Boolean(anchorEl);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -41,8 +44,10 @@ export default function BasicMenu({
     handleClose();
   }
 
-
-
+  const handleopenModalDelet = ()=>{
+    setOpenModalDelet(true)
+    handleClose();
+  }
 
   return (
     <div>
@@ -53,7 +58,7 @@ export default function BasicMenu({
         aria-expanded={open ? 'true' : undefined}
         onClick={handleClick}
       >
-        <RiMore2Fill/>
+        <RiMoreLine/>
       </Button>
       <Menu
         id="basic-menu"
@@ -64,19 +69,28 @@ export default function BasicMenu({
           'aria-labelledby': 'basic-button',
         }}
       >
-        <MenuItem onClick={handleopenModal}><RiPencilLine/>Actualizar</MenuItem>
-        <MenuItem onClick={handleClose}><RiFileCopyLine/>Copiar id</MenuItem>
-        <MenuItem className='text-red-600 bg-blue-500' onClick={handleClose}><RiDeleteBin7Line/>Eliminar</MenuItem>
+        <MenuItem onClick={handleopenModal}><span className='mx-2'><RiPencilLine/></span>Actualizar</MenuItem>
+        <MenuItem onClick={handleopenModalDelet}><span className='mx-2 text-red-500'><RiDeleteBin7Line/></span>Eliminar</MenuItem>
       </Menu>
+      {/* Ventana modal que ejecuta el metodo put y deja actualizar la tematica */}
       <ModalTematica 
         open={openModal} 
-        handleClose={()=> setOpenModal(false)}
+        handleClose={()=> setOpenModal(false)} 
         id={id}
-        descr={descr}
-        maxHoursM={maxHoursM}
-        maxHoursS={maxHoursS}
-        name={name}
-        quarter={quarter} 
+        nombreTematica={nombreTematica}
+        descripcionTematica={descripcionTematica}
+        horasMaximasM={horasMaximasM}
+        horasMaximasS={horasMaximasS}
+        trimestre={trimestre}
+        estadoTematica={estadoTematica}
+        idProgramaFK={idProgramaFK}
+      />
+      {/* Ventana modale que deja eliminar la tematica  */}
+      <ModalDelet
+        open={openModalDelet}
+        handleClose={()=> setOpenModalDelet(false)}
+        id={id}
+        nombreTematica={nombreTematica}
       />
     </div>
   );
