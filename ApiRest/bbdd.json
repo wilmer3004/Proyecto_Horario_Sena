@@ -132,22 +132,13 @@
   ],
   "instructor": [
     {
-      "nombreInstructor": "test-2",
-      "apellidoInstructor": "test-2",
+      "nombreInstructor": "test-6",
+      "apellidoInstructor": "test-6",
       "estadoInstructor": "1",
-      "horasSemanales": "00",
+      "horasSemanales": "22",
       "imagenInstructor": "https://img.freepik.com/foto-gratis/vista-frontal-hombre-sonriente-posando-brazos-cruzados_23-2148692179.jpg",
-      "idTpoIdentificacionFK": "1",
+      "idTpoIdentificacionFK": "2",
       "id": "b67abc0c-fa43-4858-9a8b-dda992341fbf"
-    },
-    {
-      "nombreInstructor": "test-2",
-      "apellidoInstructor": "test-2",
-      "estadoInstructor": "1",
-      "horasSemanales": "00",
-      "imagenInstructor": "https://img.freepik.com/foto-gratis/vista-frontal-hombre-sonriente-posando-brazos-cruzados_23-2148692179.jpg",
-      "idTpoIdentificacionFK": "3",
-      "id": "1d9b6f1a-1f79-4900-ad24-bed4a6c11635"
     }
   ],
   "trimestre": [

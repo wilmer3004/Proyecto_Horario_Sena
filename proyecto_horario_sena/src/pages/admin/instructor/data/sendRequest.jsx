@@ -1,15 +1,19 @@
+// Url sin end Point
+import { API_URL } from '../../../../utils/httpRequest';
+
+
 import axios from 'axios'
 import { v4 as uuidv4 } from 'uuid';
 import { useState, useEffect } from 'react';
 import { getDataFromEndpoin } from '../../../../utils/httpRequest';
 
+const endpoint = 'instructor';
 
 // Metodo GET
 export const usuarioData = () => {
   const [datos, setDatos] = useState([])
 
   useEffect(()=>{
-      const endpoint = 'instructor';
 
       getDataFromEndpoin(endpoint)
       .then((data)=>{
@@ -27,7 +31,7 @@ export const usuarioData = () => {
 // Metodo PUT 
 export const actualizarInstructor = async (id, instructorData, handleClose) => {
     try {
-      await axios.put(`http://localhost:3000/instructor/${id}`, {
+      await axios.put(`${API_URL}/${endpoint}/${id}`, {
         ...instructorData,
       });
       handleClose()
@@ -88,7 +92,7 @@ export const registrarInstructor = async (instructorData) => {
     // Agregar ID antes de hacer la solicitud POST
     instructorData.id = uuidv4();
 
-    await axios.post('http://localhost:3000/instructor', instructorData);
+    await axios.post(`${API_URL}/${endpoint}`, instructorData);
 
     console.log("Instructor registrado correctamente");
     window.location.reload(); // Recarga la página
@@ -101,7 +105,7 @@ export const registrarInstructor = async (instructorData) => {
 // Metodo DELETE 
 export const eliminarInstructor = async (id) => {
     try {
-      await axios.delete(`http://localhost:3000/instructor/${id}`);
+      await axios.delete(`${API_URL}/${endpoint}/${id}`);
       console.log(`Instructor con ID ${id} eliminado correctamente`);
     } catch (error) {
       console.error(`Error al eliminar el instructor con ID ${id}`, error);
@@ -128,5 +132,5 @@ export const tipoDocData = () => {
     }, []);
   
     return datos
-  };
+};
 

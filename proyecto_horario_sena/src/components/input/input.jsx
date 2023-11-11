@@ -2,7 +2,6 @@ import { useState } from 'react'
 
 
 export const InputLabel = ({ 
-  name,
   htmlId,
   label, 
   value, 
