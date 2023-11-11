@@ -10,12 +10,12 @@ import { FormInstructor } from './components/UI/form/form';
 
 export const InstructorPage = () => {
   // Informacion recolectada del metodo GET de nuestra bd 
-  const datos = usuarioData()
+  const rows = usuarioData()
 
   return (
     <LayoutPage 
       desc="Gestione los instructores registrador"
-      title={`INSTRUCTORES (${datos.length})`}>
+      title={`INSTRUCTORES (${rows.length})`}>
       <ModalInstructor/>
       <Tab.Panels>
         <Tab.Panel>

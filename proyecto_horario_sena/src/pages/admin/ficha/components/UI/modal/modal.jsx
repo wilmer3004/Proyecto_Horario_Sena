@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import axios from 'axios'
-import { InputLabel } from '../../../../../../components/input/inputUpdate';
 import { programaData } from '../../../data/sendRequest';
 import { jornadaData } from '../../../data/sendRequest';
+import { actualizarFicha } from '../../../data/sendRequest';
 
+import { InputLabel } from '../../../../../../components/input/inputUpdate';
 import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
@@ -40,39 +40,14 @@ export const ModalFicha = ({
       [name]: value,
     });
   };
-
-  // Metodo PUT para acutializar lainformacion de la Ficha
-  // Mejorar el codigo para tener buenas practicas
-  const actualizarFicha = async () => {
-    try {
-      await axios.put(`http://localhost:3000/ficha/${id}`, {
-        ...fichaData,
-      });
-      handleClose()
-
-
-      // Manejo de errores 
-      if(!fichaData.nombreFicha){
-        return new error ("Nombre requerido", { status: 400 })
-      }
-      if(!fichaData.estadoFicha){
-        return new error ("Estado requerido", { status: 400 })
-      }
-      if(!fichaData.idProgramaFK){
-        return new error ("Programa requerido", { status: 400 })
-      }
-      if(!fichaData.idJornadaFK){
-        return new error ("Jornada requerido", { status: 400 })
-      }
-
-      console.log("Ficha actualizada correctamente");
-      window.location.reload(); // Recarga la página
-    } catch (error) {
-      console.error("FICHA_PATCH", error);
-      return new error ("Internal error", {status: 500})
+  const handleActualizarFicha = async () => {
+    try{
+      await actualizarFicha(id, fichaData, handleClose);
     }
-  };
-
+    catch (error) {
+      console.error("Error al actualizar la ficha:", error.message);
+    }
+  }
 
   return (
     <>
@@ -136,7 +111,7 @@ export const ModalFicha = ({
               onClick={actualizarFicha}>Actualizar</button>
             <button 
               className='p-2 bg-red-500 text-white border rounded-md hover:shadow-lg transition-all'
-              onClick={handleClose}>Cerrar</button>
+              onClick={handleActualizarFicha}>Cerrar</button>
           </DialogActions>
         </div>
       </Dialog>

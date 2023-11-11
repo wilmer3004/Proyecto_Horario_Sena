@@ -1,8 +1,7 @@
 "use client";
 
 import * as React from 'react';
-import axios from 'axios'
-
+import { eliminarInstructor } from '../../../data/sendRequest';
 
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -18,18 +17,15 @@ export const ModalDelet = ({
 }) => {
 
   // Metodo delet para elimianar el instructor
-  // Mejorar codigo para tener buenas practicas
-  const eliminarInstructor = async () => {
-    try {
-      await axios.delete(`http://localhost:3000/instructor/${id}`);
-      console.log(`Instructor con ID ${id} eliminado correctamente`);
+  const handleDeletInstructor = async () => {
+    try{
+      await eliminarInstructor(id)
       handleClose()
       window.location.reload(); 
     } catch (error) {
-      console.error(`Error al eliminar el instructor con ID ${id}`, error);
+      console.error("Error al eliminar el instructor:", error.message);
     }
-  };
-  
+  }
   return (
     <React.Fragment>
       <Dialog
@@ -55,7 +51,7 @@ export const ModalDelet = ({
           </button>
           <button 
             className='p-2 bg-red-500 rounded-md text-white hover:shadow-lg transition-all'
-            onClick={eliminarInstructor}>Eliminar</button>
+            onClick={handleDeletInstructor}>Eliminar</button>
         </DialogActions>
       </Dialog>
     </React.Fragment>
