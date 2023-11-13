@@ -37,7 +37,7 @@ const LayoutPage = ({title, children, desc})=>{
                     </Tab>
                 </Tab.List>
             </div>
-                {children}
+                {children /*Abre y cierra una etiqueta y sw muestra o ejecuta todo lo que contenga dnetro dicha etiqueta*/}  
         </div>
     </Tab.Group>
     )

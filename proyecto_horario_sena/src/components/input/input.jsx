@@ -2,18 +2,18 @@ import { useState } from 'react'
 
 
 export const InputLabel = ({ 
-  name,
-  htmlId,
-  label, 
-  value, 
-  onChange, 
-  inputProps,
-  col
+  name, //Nombre del input
+  htmlId, //ID del input
+  label, //Label superior al input
+  value, //Value del input
+  onChange, //Alamacenar el valor tomado por el input en una variable
+  inputProps, //No se usa
+  col //Cantidad de columnas
 }) => {
   const [isInputFocused, setInputFocused] = useState(false);
 
   const handleInput = (event) => {
-    onChange(event.target.value);
+    onChange(event.target.value); //Analiza lo que contiene el input y con el OnChange toma el valor para luego almacenarlo
   };
 
   return (

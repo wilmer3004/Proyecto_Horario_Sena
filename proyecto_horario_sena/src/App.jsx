@@ -16,7 +16,6 @@ import { FichaPage } from "./pages/admin/ficha/FichaPage";
 import { TrimestrePage } from "./pages/admin/trimestre/trimestrePage";
 
 function App() {
-
   return (
     <BrowserRouter>
       <Routes>

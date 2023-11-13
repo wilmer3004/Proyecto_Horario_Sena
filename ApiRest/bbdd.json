@@ -100,6 +100,11 @@
       "id": 3,
       "nombreTipoIdentificacion": "Cédula de Extranjería",
       "estadoTipoIdentificacion": 1
+    },
+    {
+      "id": 4,
+      "nombreTipoIdentificacion": "Cédula de Sapo",
+      "estadoTipoIdentificacion": 1
     }
   ],
   "usuario": [
