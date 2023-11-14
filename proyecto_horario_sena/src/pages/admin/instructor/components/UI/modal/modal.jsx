@@ -2,9 +2,9 @@
 
 
 import React, { useState } from 'react'
-import axios from 'axios'
 import { tipoDocData } from '../../../data/sendRequest';
 import { InputLabel } from '../../../../../../components/input/inputUpdate';
+import { actualizarInstructor } from '../../../data/sendRequest';
 
 import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
@@ -47,43 +47,14 @@ export const ModalInstructor = ({
   };
 
   // Metodo PUT para acutializar lainformacion del instructor
-  // Mejorar el codigo para tener buenas practicas
-  const actualizarInstructor = async () => {
-    try {
-      await axios.put(`http://localhost:3000/instructor/${id}`, {
-        ...instructorData,
-      });
-      handleClose()
-
-
-      // Manejo de errores 
-      if(!instructorData.nombreInstructor){
-        return new error ("Nombre requerido", { status: 400 })
-      }
-      if(!instructorData.apellidoInstructor){
-        return new error ("Apellido requerido", { status: 400 })
-      }
-      if(!instructorData.estadoInstructor){
-        return new error ("Estado requerido", { status: 400 })
-      }
-      if(!instructorData.horasSemanales){
-        return new error ("Horas requerido", { status: 400 })
-      }
-      if(!instructorData.imagenInstructor){
-        return new error ("Imagen requerido", { status: 400 })
-      }
-      if(!instructorData.idTpoIdentificacionFK){
-        return new error ("Tipo identificación requerido", { status: 400 })
-      }
-
-      console.log("Instructor actualizado correctamente");
-      window.location.reload(); // Recarga la página
-    } catch (error) {
-      console.error("INSTRUCTOR_PATCH", error);
-      return new error ("Internal error", {status: 500})
+  const handleActualizarInstructor = async () => {
+    try{
+      await actualizarInstructor(id, instructorData, handleClose)
+    } 
+    catch (error){
+      console.error("Error al actualizar la ficha:", error.message);
     }
-  };
-
+  }
 
   return (
     <>
@@ -157,7 +128,7 @@ export const ModalInstructor = ({
         <DialogActions>
           <button 
             className='p-2 border rounded-md hover:shadow-lg transition-all'
-            onClick={actualizarInstructor}>Actualizar</button>
+            onClick={handleActualizarInstructor}>Actualizar</button>
           <button 
             className='p-2 bg-red-500 text-white border rounded-md hover:shadow-lg transition-all'
             onClick={handleClose}>Cerrar</button>

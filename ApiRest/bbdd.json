@@ -154,7 +154,18 @@
       "estadoTrimestre": 1
     }
   ],
-  "tematica": [],
+  "tematica": [
+    {
+      "nombreTematica": "Python",
+      "descripcionTematica": "Alguna descripcion sobre la tematica",
+      "horasMaximasM": "48",
+      "horasMaximasS": "21",
+      "trimestre": "1",
+      "estadoTematica": "1",
+      "idProgramaFK": "2",
+      "id": "8867483d-ab3a-4320-80bd-57fc1a4e6da2"
+    }
+  ],
   "tematicaInstructor": [
     {
       "idTematicaInstructor": 1,
@@ -180,11 +191,11 @@
       "id": "1"
     },
     {
-      "id": "2",
       "nombreFicha": "202324",
       "estadoFicha": 1,
       "idProgramaFK": 1,
-      "idJornadaFK": 1
+      "idJornadaFK": 1,
+      "id": "2"
     }
   ],
   "bloque": [
