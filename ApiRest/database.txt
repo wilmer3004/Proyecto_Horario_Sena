@@ -4,6 +4,7 @@ use dbhorariosena;
 create table Localidad (
     idLocalidad int Auto_Increment not null primary key,
     nombreLocalidad varchar(40) not null
+    (  QUEMADOS )
 );
 
 create table Sede(
@@ -34,11 +35,14 @@ create table Programa(
     idRol int primary key auto_increment,
     nombreRol varchar(25),
     estadoRol boolean not null
+    (   QUEMADO   )
 );
 create table TipoIdentificacion (
     idTipoIdentificacion int primary key auto_increment,
     nombreTipoIdentificacion varchar(50) not null,
     estadoTipoIdentificacion boolean not null
+
+    (QUEMADOS)
 );
 
 create table Usuario(

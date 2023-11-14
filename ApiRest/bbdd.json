@@ -130,17 +130,7 @@
       "idTpoIdentificacionFK": 1
     }
   ],
-  "instructor": [
-    {
-      "nombreInstructor": "test-1",
-      "apellidoInstructor": "test",
-      "estadoInstructor": "1",
-      "horasSemanales": "28",
-      "imagenInstructor": "https://img.freepik.com/foto-gratis/retrato-hermoso-mujer-joven-posicion-pared-gris_231208-10760.jpg",
-      "idTpoIdentificacionFK": "3",
-      "id": "b851dfb0-087a-43ce-ade3-dbaddd4f50af"
-    }
-  ],
+  "instructor": [],
   "trimestre": [
     {
       "id": "1",
@@ -164,28 +154,7 @@
       "estadoTrimestre": 1
     }
   ],
-  "tematica": [
-    {
-      "nombreTematica": "Python",
-      "descripcionTematica": "Alguna descripcion sobre la tematica",
-      "horasMaximasM": "48",
-      "horasMaximasS": "21",
-      "trimestre": "1",
-      "estadoTematica": "1",
-      "idProgramaFK": "2",
-      "id": "8867483d-ab3a-4320-80bd-57fc1a4e6da2"
-    },
-    {
-      "id": "6c761548-be65-4b14-b2f9-2e507853e5ff",
-      "nombreTematica": "Java",
-      "descripcionTematica": "Java...",
-      "horasMaximasM": "36",
-      "horasMaximasS": "12",
-      "trimestre": "2",
-      "estadoTematica": "0",
-      "idProgramaFK": "2"
-    }
-  ],
+  "tematica": [],
   "tematicaInstructor": [
     {
       "idTematicaInstructor": 1,
