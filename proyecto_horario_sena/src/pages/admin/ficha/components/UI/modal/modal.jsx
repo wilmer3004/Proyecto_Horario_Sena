@@ -56,17 +56,30 @@ export const ModalFicha = ({
           <DialogTitle>ACTUALIZAR</DialogTitle>
           <Divider/>
           <DialogContent>
-            <h1 className='text-xl text-center font-semibold uppercase text-gray-500 pb-4'>{nombreFicha} | ID: {id}</h1>
+            <h1 className='text-xl text-center font-semibold uppercase text-gray-500 pb-4'>Ficha : {nombreFicha} | ID : {id}</h1>
             <div className='flex items-center justify-center gap-4'>
               <div className='grid grid-cols-8 py-4 gap-4 w-full'>
                 <InputLabel
-                  col={4}
+                  col={8}
                   htmlId="nombreFicha"
-                  label="Nombre"
+                  label="Numero Ficha"
                   name="nombreFicha"
                   value={fichaData.nombreFicha}
                   onChange={handleInputChange}
                 />
+                <select
+                  className='shadow-lg col-span-8 p-2 border rounded-md focus:outline-none appearance-none'
+                  name="idJornadaFK"
+                  value={fichaData.idJornadaFK}
+                  onChange={handleInputChange}
+                >
+                  {
+                    // Mapeo de la informacion que pertenece al parametro tipos doc en bd 
+                    idJornada.map((item)=>(
+                      <option key={item.id} value={(item.id)}>{item.nombreJornada}</option>
+                    ))
+                  }
+                </select>
                 <select
                   className='shadow-lg col-span-4 p-2 border rounded-md focus:outline-none appearance-none'
                   name="idProgramaFK"
@@ -77,19 +90,6 @@ export const ModalFicha = ({
                     // Mapeo de la informacion que pertenece al parametro tipos doc en bd 
                     idPrograma.map((item)=>(
                       <option key={item.id} value={(item.id)}>{item.nombrePrograma}</option>
-                    ))
-                  }
-                </select>
-                <select
-                  className='shadow-lg col-span-4 p-2 border rounded-md focus:outline-none appearance-none'
-                  name="idJornadaFK"
-                  value={fichaData.idJornadaFK}
-                  onChange={handleInputChange}
-                >
-                  {
-                    // Mapeo de la informacion que pertenece al parametro tipos doc en bd 
-                    idJornada.map((item)=>(
-                      <option key={item.id} value={(item.id)}>{item.nombreJornada}</option>
                     ))
                   }
                 </select>
@@ -108,10 +108,10 @@ export const ModalFicha = ({
           <DialogActions>
             <button 
               className='p-2 border rounded-md hover:shadow-lg transition-all'
-              onClick={actualizarFicha}>Actualizar</button>
+              onClick={handleActualizarFicha}>Actualizar</button>
             <button 
               className='p-2 bg-red-500 text-white border rounded-md hover:shadow-lg transition-all'
-              onClick={handleActualizarFicha}>Cerrar</button>
+              onClick={handleClose}>Cerrar</button>
           </DialogActions>
         </div>
       </Dialog>

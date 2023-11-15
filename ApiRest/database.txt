@@ -30,7 +30,7 @@ create table Programa(
     versionPrograma int not null,
     estadoPrograma boolean not null
 );
-    create table Rol(
+create table Rol(
     idRol int primary key auto_increment,
     nombreRol varchar(25),
     estadoRol boolean not null
