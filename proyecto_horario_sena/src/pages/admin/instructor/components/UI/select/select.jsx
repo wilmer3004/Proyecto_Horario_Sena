@@ -59,7 +59,7 @@ export const MenuInstructor = ({
         aria-expanded={open ? 'true' : undefined}
         onClick={handleClick}
       >
-        <RiMoreLine className='text-lg text-primary'/>
+        <RiMoreLine className='text-2xl'/>
       </Button>
       <Menu
         id="basic-menu"

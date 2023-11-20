@@ -9,7 +9,6 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import Divider from '@mui/material/Divider';
-import { eliminarTematica } from '../../../data/sendRequest';
 
 
 export const ModalDelet = ({
@@ -19,15 +18,17 @@ export const ModalDelet = ({
 }) => {
 
   // Metodo delet para elimianar la tematica
-  const handleDeletFicha = async () => {
-    try{
-      await eliminarTematica(id)
+  // Mejorar codigo para tener buenas practicas
+  const eliminarTematica = async () => {
+    try {
+      await axios.delete(`http://localhost:3000/tematica/${id}`);
+      console.log(`Tematica con ID ${id} eliminado correctamente`);
       handleClose()
       window.location.reload(); 
-    }catch{
-      console.error("Error al eliminar el instructor:", error.message)
+    } catch (error) {
+      console.error(`Error al eliminar el instructor con ID ${id}`, error);
     }
-  }
+  };
   
   return (
     <React.Fragment>
@@ -54,7 +55,7 @@ export const ModalDelet = ({
           </button>
           <button 
             className='p-2 bg-red-500 rounded-md text-white hover:shadow-lg transition-all'
-            onClick={handleDeletFicha}>Eliminar</button>
+            onClick={eliminarTematica}>Eliminar</button>
         </DialogActions>
       </Dialog>
     </React.Fragment>

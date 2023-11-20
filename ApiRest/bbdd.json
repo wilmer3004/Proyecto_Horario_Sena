@@ -52,21 +52,21 @@
   ],
   "programa": [
     {
-      "id": 1,
+      "id": "1",
       "nombrePrograma": "ADSO",
       "descripcionProgram": "Cualquier descripción",
       "versionPrograma": "v1.0",
       "estadoPrograma": 1
     },
     {
-      "id": 2,
+      "id": "2",
       "nombrePrograma": "ADSI",
       "descripcionProgram": "Cualquier descripción",
       "versionPrograma": "v1.0",
       "estadoPrograma": 1
     },
     {
-      "id": 3,
+      "id": "3",
       "nombrePrograma": "Comunicación",
       "descripcionProgram": "Cualquier descripción",
       "versionPrograma": "v1.0",
@@ -175,8 +175,15 @@
   ],
   "jornada": [
     {
-      "id": 1,
+      "id": "1",
       "nombreJornada": "Diurna",
+      "diaIniJor": "Enero 1",
+      "diaFinJor": "Diciembre 12",
+      "estadoJornada": 1
+    },
+    {
+      "id": "2",
+      "nombreJornada": "Noche",
       "diaIniJor": "Enero 1",
       "diaFinJor": "Diciembre 12",
       "estadoJornada": 1
@@ -184,18 +191,18 @@
   ],
   "ficha": [
     {
-      "nombreFicha": "202323",
-      "estadoFicha": "0",
+      "nombreFicha": "321321",
+      "estadoFicha": "1",
       "idProgramaFK": "1",
-      "idJornadaFK": 1,
-      "id": "1"
+      "idJornadaFK": "1",
+      "id": "f32e24eb-bdda-4229-990c-0970be9730d1"
     },
     {
-      "nombreFicha": "202324",
-      "estadoFicha": 1,
-      "idProgramaFK": 1,
-      "idJornadaFK": 1,
-      "id": "2"
+      "nombreFicha": "123321123",
+      "estadoFicha": "1",
+      "idProgramaFK": "1",
+      "idJornadaFK": "1",
+      "id": "362b2c1b-b9ef-441d-9456-917ded6782c4"
     }
   ],
   "bloque": [
