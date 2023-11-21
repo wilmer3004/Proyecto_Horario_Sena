@@ -1,8 +1,8 @@
 "use client";
 
 import * as React from 'react';
-import { tematicaData } from '../../../data/sendRequest';
-import { MenuTematica } from '../select/select';
+import { programaData } from '../../../data/sendRequest';
+import { MenuPrograma } from '../select/select';
 
 
 import Table from '@mui/material/Table';
@@ -15,9 +15,9 @@ import Paper from '@mui/material/Paper';
 
 
 
-export const TableTematica = ()=> {
+export const TablePrograma = ()=> {
   // Almacena la informacion traida desde la peticion get
-  const rows = tematicaData()
+  const rows = programaData()
 
   return (
     <div className='pt-2 border border-gray-200 rounded-lg'>
@@ -27,22 +27,19 @@ export const TableTematica = ()=> {
             <TableRow>
               {/* Cabecera de la informacion renderizada desde el GET */}
               <TableCell>
-                <p className='text-base font-bold '>Nombre Tematica</p>
+                <p className='text-base font-bold '>Nombre Programa</p>
               </TableCell>
               <TableCell align="left">
-                <p className='text-base font-bold '>Id Tematica</p>
+                <p className='text-base font-bold '>Id Programa</p>
               </TableCell>
               <TableCell align="left">
                 <p className='text-base font-bold '>Descripción</p>
               </TableCell>
               <TableCell align="left">
-                <p className='text-base font-bold '>Horas Maximas Mensuales</p>
+                <p className='text-base font-bold '>Versión Programa</p>
               </TableCell>
               <TableCell align="left">
-              <p className='text-base font-bold '>Horas Maximas Semanales</p>
-              </TableCell>
-              <TableCell align="left">
-              <p className='text-base font-bold '>Trimestre</p>
+              <p className='text-base font-bold '>Estado Programa</p>
               </TableCell>
             </TableRow>
           </TableHead>
@@ -54,24 +51,20 @@ export const TableTematica = ()=> {
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
               >
                 <TableCell component="th" scope="row">
-                  {row.nombreTematica}
+                  {row.nombrePrograma}
                 </TableCell>
                 <TableCell align="left">{row.id}</TableCell>
-                <TableCell align="left">{row.descripcionTematica}</TableCell>
-                <TableCell align="left">{row.horasMaximasM} Horas</TableCell>
-                <TableCell align="left">{row.horasMaximasS} Horas</TableCell>
-                <TableCell align="left">Trimestre {row.trimestre}</TableCell>
+                <TableCell align="left">{row.descripcionPrograma}</TableCell>
+                <TableCell align="left">{row.versionPrograma}</TableCell>
+                <TableCell align="left">{row.estadoPrograma === "1" ? "Activo": "Inactivo"}</TableCell>
                 <TableCell align="left">
-                  {/* Modal que nos permie actualizar y eliminar la informacion de la Tematica mediante el id */}
-                  <MenuTematica 
+                  {/* Modal que nos permie actualizar y eliminar la informacion de la Programa mediante el id */}
+                  <MenuPrograma 
                     id={row.id}
-                    nombreTematica={row.nombreTematica}
-                    descripcionTematica={row.descripcionTematica}
-                    horasMaximasM={row.horasMaximasM}
-                    horasMaximasS={row.horasMaximasS}
-                    trimestre={row.trimestre}
-                    estadoTematica={row.estadoTematica}
-                    idProgramaFK={row.idProgramaFK}
+                    nombrePrograma={row.nombrePrograma}
+                    descripcionPrograma={row.descripcionPrograma}
+                    versionPrograma={row.versionPrograma}
+                    estadoPrograma={row.estadoPrograma}
                     />
                 </TableCell>
               </TableRow>

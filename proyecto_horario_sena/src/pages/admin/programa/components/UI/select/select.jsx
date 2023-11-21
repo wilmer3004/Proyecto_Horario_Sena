@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ModalTematica } from '../modal/modal';
+import { ModalPrograma } from '../modal/modal';
 import { ModalDelet } from '../modal/modalDelet';
 
 import Button from '@mui/material/Button';
@@ -11,15 +11,13 @@ import {
   RiDeleteBin7Line
 } from "react-icons/ri";
 
-export const MenuTematica = ({
+export const MenuPrograma = ({
   id, 
-  nombreTematica,
-  descripcionTematica,
-  horasMaximasM,
-  horasMaximasS,
-  trimestre,
-  estadoTematica,
-  idProgramaFK
+  nombrePrograma,
+  descripcionPrograma,
+  versionPrograma,
+  estadoPrograma,
+
 }) => {
   
   const [open, setOpen] = React.useState(false)
@@ -72,25 +70,22 @@ export const MenuTematica = ({
         <MenuItem onClick={handleopenModal}><span className='mx-2'><RiPencilLine/></span>Actualizar</MenuItem>
         <MenuItem onClick={handleopenModalDelet}><span className='mx-2 text-red-500'><RiDeleteBin7Line/></span>Eliminar</MenuItem>
       </Menu>
-      {/* Ventana modal que ejecuta el metodo put y deja actualizar la tematica */}
-      <ModalTematica 
+      {/* Ventana modal que ejecuta el metodo put y deja actualizar la Programa */}
+      <ModalPrograma 
         open={openModal} 
         handleClose={()=> setOpenModal(false)} 
         id={id}
-        nombreTematica={nombreTematica}
-        descripcionTematica={descripcionTematica}
-        horasMaximasM={horasMaximasM}
-        horasMaximasS={horasMaximasS}
-        trimestre={trimestre}
-        estadoTematica={estadoTematica}
-        idProgramaFK={idProgramaFK}
+        nombrePrograma={nombrePrograma}
+        descripcionPrograma={descripcionPrograma}
+        estadoPrograma={estadoPrograma}
+        versionPrograma={versionPrograma}
       />
-      {/* Ventana modale que deja eliminar la tematica  */}
+      {/* Ventana modale que deja eliminar la Programa  */}
       <ModalDelet
         open={openModalDelet}
         handleClose={()=> setOpenModalDelet(false)}
         id={id}
-        nombreTematica={nombreTematica}
+        nombrePrograma={nombrePrograma}
       />
     </div>
   );

@@ -1,8 +1,7 @@
 "use client";
 
 import * as React from 'react';
-import axios from 'axios'
-
+import { eliminarPrograma } from '../../../data/sendRequest';
 
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -17,18 +16,15 @@ export const ModalDelet = ({
   id,
 }) => {
 
-  // Metodo delet para elimianar la tematica
-  // Mejorar codigo para tener buenas practicas
-  const eliminarTematica = async () => {
-    try {
-      await axios.delete(`http://localhost:3000/tematica/${id}`);
-      console.log(`Tematica con ID ${id} eliminado correctamente`);
-      handleClose()
-      window.location.reload(); 
-    } catch (error) {
-      console.error(`Error al eliminar el instructor con ID ${id}`, error);
+  // Metodo delet para elimianar la programa  
+  const handleDeletPrograma = async () =>{
+    try{
+      await eliminarPrograma(id, handleClose)
+      console.log("programa eliminado")
+    }catch (error){
+      console.log("Error al eliminar", error)
     }
-  };
+  }
   
   return (
     <React.Fragment>
@@ -55,7 +51,7 @@ export const ModalDelet = ({
           </button>
           <button 
             className='p-2 bg-red-500 rounded-md text-white hover:shadow-lg transition-all'
-            onClick={eliminarTematica}>Eliminar</button>
+            onClick={handleDeletPrograma}>Eliminar</button>
         </DialogActions>
       </Dialog>
     </React.Fragment>

@@ -3,7 +3,6 @@ import { API_URL } from '../../../../utils/httpRequest';
 
 
 import axios from 'axios'
-import { v4 as uuidv4 } from 'uuid';
 import { useState, useEffect } from 'react';
 import { getDataFromEndpoin } from '../../../../utils/httpRequest';
 
@@ -67,7 +66,9 @@ export const actualizarInstructor = async (id, instructorData, handleClose) => {
 
   
 //   Metodo POST 
-export const registrarInstructor = async (instructorData) => {
+export const registrarInstructor = async (
+  instructorData
+  ) => {
   try {
     // Validación de campos
     if (!instructorData.nombreInstructor) {
@@ -76,7 +77,7 @@ export const registrarInstructor = async (instructorData) => {
     if (!instructorData.apellidoInstructor) {
       throw new Error("Apellido requerido");
     }
-    if (instructorData.estadoInstructor === undefined || instructorData.estadoInstructor === null) {
+    if (!instructorData.estadoInstructor) {
       throw new Error("Estado requerido");
     }
     if (!instructorData.horasSemanales) {
@@ -88,9 +89,6 @@ export const registrarInstructor = async (instructorData) => {
     if (!instructorData.idTpoIdentificacionFK) {
       throw new Error("Tipo identificación requerido");
     }
-
-    // Agregar ID antes de hacer la solicitud POST
-    instructorData.id = uuidv4();
 
     await axios.post(`${API_URL}/${endpoint}`, instructorData);
 

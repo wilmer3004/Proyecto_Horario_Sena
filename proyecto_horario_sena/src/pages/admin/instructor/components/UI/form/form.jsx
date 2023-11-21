@@ -6,11 +6,12 @@ import { useState } from 'react'
 import { v4 as uuidv4 } from 'uuid' 
 
 import { InputLabel } from '../../../../../../components/input/input'
+import { registrarInstructor } from '../../../data/sendRequest';
 
 export const FormInstructor = () => {
   const [nombreInstructor, setNombreInstructor] = useState('');
   const [apellidoInstructor, setApellidoInstructor] = useState('');
-  const [estadoInstructor, setEstadoInstructor] = useState(1); // Valor predeterminado 1 para "Activo"
+  const [estadoInstructor, setEstadoInstructor] = useState("1"); // Valor predeterminado 1 para "Activo"
   const [horasSemanales, setHorasSemanales] = useState('');
   const [imagenInstructor, setImagenInstructor] = useState('');
   const [idTpoIdentificacionFK, setidTpoIdentificacionFK] = useState('');
@@ -30,32 +31,9 @@ export const FormInstructor = () => {
     };
 
     // Metodo POST que utilizamos para agregar el instructor a nuestra bd
-    // Mejorar codigo para cumplir con buenas practicas
     try {
-      await axios.post('http://localhost:3000/instructor', instructorData);
-
-        // Manejo de error
-        if(!instructorData.nombreInstructor){
-          return new error ("Nombre requerido", { status: 400 })
-        }
-        if(!instructorData.apellidoInstructor){
-          return new error ("Apellido requerido", { status: 400 })
-        }
-        if(!instructorData.estadoInstructor){
-          return new error ("Estado requerido", { status: 400 })
-        }
-        if(!instructorData.horasSemanales){
-          return new error ("Horas requerido", { status: 400 })
-        }
-        if(!instructorData.imagenInstructor){
-          return new error ("Imagen requerido", { status: 400 })
-        }
-        if(!instructorData.idTpoIdentificacionFK){
-          return new error ("Tipo identificación requerido", { status: 400 })
-        }
-
-        console.log("Registrado")
-        window.location.reload(); // Recarga la página
+      registrarInstructor(instructorData)
+      console.log("Registrado")
     } catch (error) {
         console.log("REGISTER_PATCH", error)
         return new error("Internal error", {status: 500})
@@ -88,7 +66,7 @@ export const FormInstructor = () => {
             <select
               className='appearance-none mt-4 col-span-4 text-lg text-gray-500 p-2 font-light rounded-sm shadow-md outline-none border'
               value={estadoInstructor}
-              onChange={(e) => setEstadoInstructor(e.target.value, 10)}
+              onChange={(e) => setEstadoInstructor(e.target.value)}
             >
               <option value="1">Activo</option>
               <option value="0">Inactivo</option>
@@ -97,7 +75,7 @@ export const FormInstructor = () => {
                 className='appearance-none mt-4 col-span-4 text-lg text-gray-500 p-2 font-light rounded-sm shadow-md outline-none border'
                 name="idTpoIdentificacionFK"
                 value={idTpoIdentificacionFK}
-                onChange={(e) => setidTpoIdentificacionFK(e.target.value, 10)}
+                onChange={(e) => setidTpoIdentificacionFK(e.target.value)}
               >
                 <option value="1">Cedula Ciudadania</option>
                 <option value="2">Tarjeta Identidad</option> 
