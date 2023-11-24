@@ -11,19 +11,19 @@
   ],
   "sede": [
     {
-      "idSede": 1,
-      "noombreSede": "SENA CGMLTI",
+      "id": 1,
+      "nombreSede": "SENA CGMLTI",
       "direccionSede": "Cl. 52 #13 65, Bogotá",
-      "estadoSede": 1,
-      "imagenSede": "https://lh5.googleusercontent.com/p/AF1QipNjbxKjSgdYd0MjtGLkVOmpq4GtLQx8rnIyP063=w408-h306-k-no",
+      "estadoSede": "1",
+      "imagenSede": "https://1.bp.blogspot.com/-lmikDKhFcQE/YDf3p_sli1I/AAAAAAAAKwk/bZDD00veXF8uPB8bA-xRW9rH-kZs5bnUgCLcBGAsYHQ/w1200-h630-p-k-no-nu/SENA52.jpg",
       "idLocalidadFk": "2"
     },
     {
-      "idSede": "2",
-      "noombreSede": "SENA CGMLTI",
+      "id": "2",
+      "nombreSede": "SENA CGMLTI",
       "direccionSede": "Cl. 52 #13 65, Bogotá",
-      "estadoSede": 1,
-      "imagenSede": "https://lh5.googleusercontent.com/p/AF1QipNjbxKjSgdYd0MjtGLkVOmpq4GtLQx8rnIyP063=w408-h306-k-no",
+      "estadoSede": "1",
+      "imagenSede": "https://1.bp.blogspot.com/-lmikDKhFcQE/YDf3p_sli1I/AAAAAAAAKwk/bZDD00veXF8uPB8bA-xRW9rH-kZs5bnUgCLcBGAsYHQ/w1200-h630-p-k-no-nu/SENA52.jpg",
       "idLocalidadFk": "2"
     }
   ],
@@ -51,13 +51,6 @@
     }
   ],
   "programa": [
-    {
-      "nombrePrograma": "ADSO",
-      "descripcionPrograma": "ADSO",
-      "versionPrograma": "v1",
-      "estadoPrograma": "1",
-      "id": "6479976a-ab1b-4cdb-815a-bd33323afddc"
-    },
     {
       "nombrePrograma": "Cadena de formación ADSI",
       "descripcionPrograma": "Cadena de formación",
@@ -128,7 +121,7 @@
       "nombreInstructor": "Nicol",
       "apellidoInstructor": "Briceño",
       "estadoInstructor": "1",
-      "horasSemanales": "20",
+      "horasSemanales": "30000",
       "imagenInstructor": "https://img.freepik.com/foto-gratis/retrato-hermoso-mujer-joven-posicion-pared-gris_231208-10760.jpg?size=626&ext=jpg",
       "idTpoIdentificacionFK": "1",
       "id": "038c9213-2f57-481b-a25d-70561cdff6bf"

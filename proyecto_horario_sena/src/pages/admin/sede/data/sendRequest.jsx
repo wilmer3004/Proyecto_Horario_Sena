@@ -4,18 +4,31 @@ import { getDataFromEndpoin } from '../../../../utils/httpRequest';
 
 export const sedeData = () => {
   const [datos, setDatos] = useState([])
+  const [datoslocalidad, setDatosLocalidad] = useState([])
 
   useEffect(()=>{
-      const endpoint = 'sedes';
-
-      getDataFromEndpoin(endpoint)
-      .then((data)=>{
-          setDatos(data)
-      })
-      .catch((error)=>{
-          console.log("[ERRORFETCH DATA]", error)
-      })
+    const endpoint = 'sede';
+    const fetchData = async ()=>{
+        try{
+            const sedeResponse = await getDataFromEndpoin(endpoint)
+            setDatos(sedeResponse)
+            const localidadResponse = await getDataFromEndpoin("localidad")
+            setDatosLocalidad(localidadResponse)
+        }catch{
+            console.log("Error")
+        }   
+    }
+    fetchData()
   }, []);
 
-  return datos
+  const sedeConLocalindad = datos.map((sede)=>{
+    const localidadInfo = datoslocalidad.find((localidad) => localidad.id === sede.idLocalidadFk)
+    return{
+        ...sede,
+        localidadInfo: localidadInfo ? localidadInfo.nombreLocalidad : 'No encontrado'
+    }
+  })
+
+  return sedeConLocalindad
+
 };

@@ -2,8 +2,8 @@ import React from 'react'
 import { sedeData } from './data/sendRequest';
 
 import { Tab } from '@headlessui/react'
-import { Card } from '../../../components/cards/Card';
 import LayoutPage from '../../../layouts/LayoutPage';
+import { Cards } from './componnets/UI/cards';
 
 
 
@@ -14,18 +14,7 @@ export const SedePage = () => {
     <LayoutPage title="SEDES">
       <Tab.Panels>
         <Tab.Panel>
-            <div className="flex items-center justify-center gap-6 flex-wrap">
-                {datos.map((dato)=>(
-                  <Card 
-                    key={dato.id}
-                    title={dato.name} 
-                    info={dato.info} 
-                    img={dato.img}
-                    textColor={1}
-                    id={dato.id}
-                    />
-                ))}
-            </div> 
+          <Cards/>
         </Tab.Panel>
         <Tab.Panel>
             tab 3
