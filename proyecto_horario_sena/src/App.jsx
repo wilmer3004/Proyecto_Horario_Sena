@@ -14,6 +14,7 @@ import { InstructorPage } from "./pages/admin/instructor/instructorPage";
 import { TematicaPage } from "./pages/admin/tematica/tematicaPage";
 import { FichaPage } from "./pages/admin/ficha/FichaPage";
 import { TrimestrePage } from "./pages/admin/trimestre/trimestrePage";
+import { HomePage } from "./pages/admin/home/home";
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
         <Route path="/registro" element={<SignOut/>} />
         <Route path="/olvide-mi-contraseña" element={<ForgetPassword/>} />
           <Route path="/" element={<LayoutAdmin/>}>
+            <Route path="home" element={<HomePage/>}/>
             <Route path="sede" element={<SedePage/>}/>
             <Route path="instructores" element={<InstructorPage/>}/>
             <Route path="tematicas" element={<TematicaPage/>}/>

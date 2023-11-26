@@ -3,7 +3,7 @@
 import * as React from 'react';
 import { usuarioData } from '../../../data/sendRequest';
 import {MenuInstructor} from '../select/select';
-
+import Cookies from 'js-cookie';
 
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -18,6 +18,8 @@ import Paper from '@mui/material/Paper';
 export const TableInstructor = ()=> {
   // Almacena la informacion traida desde la peticion get
   const rows = usuarioData()
+  const token = Cookies.get('token')
+
 
   return (
     <div className='pt-2 border border-gray-200 rounded-lg'>
@@ -73,6 +75,8 @@ export const TableInstructor = ()=> {
           </TableBody>
         </Table>
       </TableContainer>
+      <button onClick={()=>console.log(token)}>Click token</button>
+
     </div>
   );
 }
