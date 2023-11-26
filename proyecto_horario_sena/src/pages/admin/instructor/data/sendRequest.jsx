@@ -6,26 +6,26 @@ import axios from 'axios'
 import { v4 as uuidv4 } from 'uuid';
 import { useState, useEffect } from 'react';
 import { getDataFromEndpoin } from '../../../../utils/httpRequest';
+import Cookies from 'js-cookie';
 
 const endpoint = 'instructor';
+const TOKEN = Cookies.get('token')
 
-// Metodo GET
-export const usuarioData = () => {
-  const [datos, setDatos] = useState([])
 
-  useEffect(()=>{
-
-      getDataFromEndpoin(endpoint)
-      .then((data)=>{
-          setDatos(data)
-      })
-      .catch((error)=>{
-          console.log("[ERRORFETCH DATA]", error)
-      })
-  }, []);
-
-  return datos
-};
+// GET
+export const fetchData = async ()=>{
+  const headers = {
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${TOKEN}`,
+  }
+  try{
+    const response = await axios.get(`${API_URL}/${endpoint}/`, {headers})
+    return response.data
+  }catch (error){
+    console.error("erro en el fetch", error)
+    throw error;
+  }
+}
 
 
 // Metodo PUT 

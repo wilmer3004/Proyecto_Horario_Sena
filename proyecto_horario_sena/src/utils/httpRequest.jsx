@@ -1,7 +1,7 @@
 import axios from 'axios';
 import Cookies from 'js-cookie';
 // constantes
-export const API_URL = 'http://localhost:3000';
+export const API_URL = 'https://pqddmp2g-5000.use2.devtunnels.ms';
 
 // Función para realizar una solicitud GET a una URL configurable
 
@@ -14,10 +14,7 @@ export const getDataFromEndpoin = async (endpoint) => {
   }
 };
 
-
 // auth
-
-
 export const isAuthenticated =()=>{
   const token = Cookies.get('token')
   return !!token;
