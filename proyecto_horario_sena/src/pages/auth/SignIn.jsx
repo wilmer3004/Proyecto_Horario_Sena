@@ -1,6 +1,7 @@
 //Hooks
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
+import { isAuthenticated } from '../../utils/httpRequest';
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
@@ -13,12 +14,18 @@ import { Link } from 'react-router-dom';
 
 const SignIn = () => {
 
-  const [showPassword, setShowPassword] = useState(false)
   const navigate = useNavigate();
+
+  const [showPassword, setShowPassword] = useState(false)
   const [idTipoDocFK, setIdTipoDocFK] = useState('');
   const [numeroIdent, setNumeroIdent] = useState('');
   const [contrasenaUsuario, setContrasenaUsuario] = useState('');
-  const [result, setResult] = useState('');
+
+  useEffect(()=>{
+    if(!isAuthenticated){
+      navigate('/',{ replace: true })
+    }
+  }, [navigate])
 
   const login = () => {
     const url = 'https://pqddmp2g-5000.use2.devtunnels.ms/auth/';
@@ -32,17 +39,25 @@ const SignIn = () => {
     axios.post(url, data, {
       headers: {
         'Content-Type': 'application/json',
+        
       },
+      
     })
     .then(response => {
       if (response.status === 200) {
-        const token = response.data.token;
-        setResult(`Inicio de sesión exitoso. Token: ${token}`);
+
+        if(!response.data.success){
+          alert("No acseso")
+          return;
+        }
+        
+        const token = response.data.token; 
+
 
         // Almacena el token en las cookies
         Cookies.set('token', token);
 
-        navigate('/');
+        navigate('/', { replace: true });
       } else {
         setResult('Error al iniciar sesión.');
       }

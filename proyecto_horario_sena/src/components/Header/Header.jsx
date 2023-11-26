@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
+import { ModalSignOff } from './components/modalLogout';
 
 import { 
   RiAccountCircleLine,
@@ -8,6 +9,23 @@ import {
 } from "react-icons/ri";
 
 const Header = () => {
+
+  const [openModalDelet, setOpenModalSignOff]= React.useState(false)
+
+
+  const handleClose = () => {
+    setAnchorEl(null);
+    setOpen(false)
+  };
+
+
+  const handleopenModalSignOff = ()=>{
+    setOpenModalSignOff(true)
+    handleClose();
+  }
+
+
+
   return (
     <header className=' h-[7vh] md:h-[10vh] xl:ml-1 bg-primary p-8 flex items-center justify-between xl:rounded-bl shadow-xl'>
       <Link to="/">
@@ -17,9 +35,13 @@ const Header = () => {
           <Link to='/'>
            <RiAccountCircleLine/>
           </Link>
-          <Link to="/ ">
+          <button onClick={handleopenModalSignOff}>
            <RiLogoutCircleRLine/>
-          </Link>
+          </button>
+          <ModalSignOff
+            open={openModalDelet}
+            handleClose={()=> setOpenModalSignOff(false)}
+          />
         </div>
     </header>
   )
