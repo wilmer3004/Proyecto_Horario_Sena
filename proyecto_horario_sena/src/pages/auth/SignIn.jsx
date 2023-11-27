@@ -11,6 +11,7 @@ import {
   RiLock2Line,
   RiEyeLine,
   RiEyeOffLine,
+  RiPassPendingLine,
 } from "react-icons/ri";
 
 // Router
@@ -20,7 +21,8 @@ const SignIn = () => {
   const navigate = useNavigate();
 
   const [showPassword, setShowPassword] = useState(false);
-  const [idTipoDocFK, setIdTipoDocFK] = useState(1);
+  
+  const [idTipoDocFK, setIdTipoDocFK] = useState();
   const [numeroIdent, setNumeroIdent] = useState("");
   const [contrasenaUsuario, setContrasenaUsuario] = useState("");
 
@@ -38,7 +40,9 @@ const SignIn = () => {
       numeroIdent,
       contrasenaUsuario,
     };
-
+    if (!idTipoDocFK || !numeroIdent || !contrasenaUsuario) {
+      alert("Fata del información")
+    }
     axios
       .post(url, data, {
         headers: {
@@ -48,10 +52,9 @@ const SignIn = () => {
       .then((response) => {
         if (response.status === 200) {
           if (!response.data.success) {
-            alert("No acseso");
+            alert("Acceso denegado");
             return;
           }
-
           const token = response.data.token;
 
           // Almacena el token en las cookies
@@ -84,7 +87,8 @@ const SignIn = () => {
         </h1>
         <form>
           <div className="relative mb-4">
-            <select id="idTipoDocFK" name="idTipoDocFK" required onChange={(e) => setIdTipoDocFK(e.target.value, 10)}v>
+            <select className="w-full px-2 py-3 rounded-lg text-gray-600 outline-none" id="idTipoDocFK" name="idTipoDocFK" required onChange={(e) => setIdTipoDocFK(e.target.value, 10)}v>
+              <option value={0}>Tipo Identificacion...</option>
               <option value={1}>CC</option>
               <option value={2}>TI</option>
               <option value={3}>CE</option>
@@ -92,7 +96,7 @@ const SignIn = () => {
             </select>
           </div>
           <div className="relative mb-4">
-            <RiMailLine className="absolute top-1/2 -translate-y-1/2 left-2 text-primary" />
+            <RiPassPendingLine  className="absolute top-1/2 -translate-y-1/2 left-2 text-primary" />
             <input
               type="text"
               id="numeroIdent"
@@ -106,7 +110,7 @@ const SignIn = () => {
           <div className="relative mb-4">
             <RiLock2Line className="absolute top-1/2 -translate-y-1/2 left-2 text-primary" />
             <input
-              type="password"
+              type={showPassword ? "text" : "password"} 
               id="contrasenaUsuario"
               name="contrasenaUsuario"
               required
@@ -130,7 +134,7 @@ const SignIn = () => {
             <button
               type="button"
               onClick={login}
-              className="border-primary hover:bg-secondary-100 bg-white w-full py-3 px-4 rounded-lg border border-secondary-100 hover:border-primary transition-colors uppercase"
+              className="bg-primary/70 w-full py-3 px-4 rounded-lg text-white/95 hover:bg-primary hover:text-white hover:shadow-xl transition-colors uppercase font-bold"
             >
               Ingresar
             </button>

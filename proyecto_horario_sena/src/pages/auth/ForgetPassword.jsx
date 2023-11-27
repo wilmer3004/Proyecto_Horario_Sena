@@ -27,7 +27,7 @@ const ForgetPassword = () => {
             <RiLockUnlockLine className="absolute top-1/2 -translate-y-1/2 left-2 text-primary" />
             <input
               required
-              type="number"
+              type="text"
               className="py-3 px-4 bg-secondary-10 w-full outline-none rounded-lg pl-8 pr-4 border border-secondary-900 focus:border-primary transition-all"
               placeholder="Numero de identificacion..."
             />
@@ -35,7 +35,7 @@ const ForgetPassword = () => {
           <div>
             <button
               type="submit"
-              className="border-primary hover:bg-secondary-100 bg-white w-full py-3 px-4 rounded-lg border border-secondary-100 hover:border-primary transition-colors uppercase"
+              className="bg-primary/70 w-full py-3 px-4 rounded-lg text-white/95 hover:bg-primary hover:text-white hover:shadow-xl transition-colors uppercase font-bold"
             >
               Enviar
             </button>

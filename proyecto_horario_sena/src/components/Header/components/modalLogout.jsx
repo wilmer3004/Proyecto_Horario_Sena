@@ -21,7 +21,7 @@ export const ModalSignOff = ({
   const handleSignOff = ()=>{
     Cookies.remove('token')
 
-    navigate('/login')
+    navigate('/')
   }
 
   return (
