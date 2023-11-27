@@ -1,8 +1,8 @@
 "use client";
 
 
-import React, { useState } from 'react'
-import { tipoDocData } from '../../../data/sendRequest';
+import { useEffect, useState } from 'react'
+import { fetchDataTiposDoc } from '../../../data/sendRequest';
 import { InputLabel } from '../../../../../../components/input/inputUpdate';
 import { actualizarInstructor } from '../../../data/sendRequest';
 
@@ -22,11 +22,28 @@ export const ModalInstructor = ({
   horasSemanales,
   imagenInstructor,
   idTpoIdentificacionFK,
+  numDocInst,
 }) => {
   
   // ALmacenamos la informacion que actualizaremos en un estado para luego enviarla al metodo PUT
   
-  const tiposDoc = tipoDocData()
+  const [tiposDoc, setTipoDoc ] = useState({typesdocs: []})
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchDataTiposD = async () => {
+      try {
+        const response = await fetchDataTiposDoc();
+        setTipoDoc(response);
+      } catch (error) {
+        console.error('Error en la petición:', error);
+      }
+    };
+
+    fetchDataTiposD();
+  }, []); 
+
   const [instructorData, setInstructorData] = useState({
     nombreInstructor: nombreInstructor,
     apellidoInstructor: apellidoInstructor,
@@ -34,27 +51,34 @@ export const ModalInstructor = ({
     horasSemanales: horasSemanales,
     imagenInstructor: imagenInstructor,
     idTpoIdentificacionFK: idTpoIdentificacionFK,
+    numDocInst: numDocInst,
   });
 
 
 //  Almacenamos la informacion de los input en su respectiva constante
-  const handleInputChange = (e) => {
+const handleInputChange = (e) => {
+  if (e && e.target && e.target.name) {
     const { name, value } = e.target;
     setInstructorData({
       ...instructorData,
       [name]: value,
     });
-  };
-
+  }
+};
   // Metodo PUT para acutializar lainformacion del instructor
   const handleActualizarInstructor = async () => {
-    try{
-      await actualizarInstructor(id, instructorData, handleClose)
-    } 
-    catch (error){
-      console.error("Error al actualizar la ficha:", error.message);
+    setLoading(true);
+
+    try {
+      await actualizarInstructor(id, instructorData, handleClose);
+      window.location.reload()
+    } catch (error) {
+      console.error("Error al actualizar la instructor:", error.message);
+      setError(error.message || 'Error al actualizar la instructor');
+    } finally {
+      setLoading(false);
     }
-  }
+  };
 
   return (
     <>
@@ -84,6 +108,14 @@ export const ModalInstructor = ({
                 value={instructorData.apellidoInstructor}
                 onChange={handleInputChange}
               />
+              <InputLabel
+                col={4}
+                htmlId="numDoc"
+                label="Numero Documento"
+                name="numDocInst"
+                value={instructorData.numDocInst}
+                onChange={handleInputChange}
+              />
               <select
                 className='shadow-lg col-span-2 p-2 border rounded-md focus:outline-none appearance-none'
                 name="estadoInstructor"
@@ -101,8 +133,8 @@ export const ModalInstructor = ({
               >
                 {
                   // Mapeo de la informacion que pertenece al parametro tipos doc en bd 
-                  tiposDoc.map((tipo)=>(
-                    <option key={tipo.id} value={(tipo.id)}>{tipo.nombreTipoIdentificacion}</option>
+                  tiposDoc.typesdocs.map((tipo)=>(
+                    <option key={tipo.idTipoIdent} value={(tipo.idTipoIdent)}>{tipo.nombreTipoIdent}</option>
                   ))
                 }
               </select>
@@ -128,13 +160,14 @@ export const ModalInstructor = ({
         <DialogActions>
           <button 
             className='p-2 border rounded-md hover:shadow-lg transition-all'
-            onClick={handleActualizarInstructor}>Actualizar</button>
+            onClick={handleActualizarInstructor} disabled={loading}>Actualizar</button>
           <button 
             className='p-2 bg-red-500 text-white border rounded-md hover:shadow-lg transition-all'
             onClick={handleClose}>Cerrar</button>
         </DialogActions>
+        {loading && <p className='text-center'>Actualizando...</p>}
+        {error && <p className='text-center text-red-500'>Error: {error}</p>}
       </Dialog>
-
     </>
 
   )

@@ -4,6 +4,7 @@ import { TableFicha } from './components/UI/Table/table';
 
 import { Tab } from '@headlessui/react'
 import LayoutPage from '../../../layouts/LayoutPage';
+import { FormFicha } from './components/UI/form/form';
 
 
 
@@ -17,7 +18,7 @@ export const FichaPage = () => {
           <TableFicha/>
         </Tab.Panel>
         <Tab.Panel>
-          {/* form */}
+          <FormFicha/>
         </Tab.Panel>
       </Tab.Panels>
     </LayoutPage>

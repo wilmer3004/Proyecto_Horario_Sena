@@ -58,7 +58,7 @@ export const MenuTematica = ({
         aria-expanded={open ? 'true' : undefined}
         onClick={handleClick}
       >
-        <RiMoreLine/>
+        <RiMoreLine className='text-2xl'/>
       </Button>
       <Menu
         id="basic-menu"

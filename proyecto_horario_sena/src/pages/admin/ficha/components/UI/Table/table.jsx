@@ -1,10 +1,7 @@
-"use client";
 
 import * as React from 'react';
 import { fichaData } from '../../../data/sendRequest';
 import { MenuFicha } from '../select/select';
-import { programaData } from '../../../data/sendRequest';
-import { jornadaData } from '../../../data/sendRequest';
 
 
 import Table from '@mui/material/Table';
@@ -20,16 +17,7 @@ import Paper from '@mui/material/Paper';
 export const TableFicha = ()=> {
   // Almacena la informacion traida desde la peticion get
   const rows = fichaData()
-  const idPrograma = programaData()
-  const idJornada = jornadaData()
 
-  const matchingRow = rows.find(row => row.idProgramaFK === idPrograma.id);
-
-  const formatterPrograma =()=>{
-    if(rows.idProgramaFK === idPrograma.id){
-      return idPrograma.nombrePrograma
-    }
-  }
 
   return (
     <div className='pt-2 border border-gray-200 rounded-lg'>
@@ -67,8 +55,8 @@ export const TableFicha = ()=> {
                 </TableCell>
                 <TableCell align="left">{row.id}</TableCell>
                 <TableCell align="left">{row.estadoFicha === "1" ? "Activo": "Inactivo"}</TableCell>
-                <TableCell align="left">{row.idProgramaFK}</TableCell>
-                <TableCell align="left">{row.idJornadaFK}
+                <TableCell align="left">{row.programaInfo}</TableCell>
+                <TableCell align="left">{row.jornadaInfo}
                 </TableCell>
                 <TableCell align="left">
                   {/* Modal que nos permie actualizar y eliminar la informacion de la Ficha mediante el id */}
