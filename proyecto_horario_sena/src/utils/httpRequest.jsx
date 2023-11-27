@@ -19,3 +19,6 @@ export const isAuthenticated =()=>{
   const token = Cookies.get('token')
   return !!token;
 }
+
+// Cookie
+export const TOKEN = Cookies.get('token')

@@ -1,9 +1,7 @@
-"use client";
 
-import axios from 'axios'
-import React from 'react'
-import { useState } from 'react'
-import { v4 as uuidv4 } from 'uuid' 
+import { useState, useEffect } from 'react'
+import { fetchDataTiposDoc } from '../../../data/sendRequest';
+import { registrarInstructor } from '../../../data/sendRequest';
 
 import { InputLabel } from '../../../../../../components/input/input'
 
@@ -13,55 +11,50 @@ export const FormInstructor = () => {
   const [estadoInstructor, setEstadoInstructor] = useState(1); // Valor predeterminado 1 para "Activo"
   const [horasSemanales, setHorasSemanales] = useState('');
   const [imagenInstructor, setImagenInstructor] = useState('');
-  const [idTpoIdentificacionFK, setidTpoIdentificacionFK] = useState('');
+  const [idTipoIdentificacionFK, setIdTipoIdentificacionFK] = useState('');
+  const [numDocInst, setNumDocInst] = useState('');
+
+  const [tiposDoc, setTipoDoc ] = useState({typesdocs: []})
+
+  useEffect(() => {
+    const fetchDataTiposD = async () => {
+      try {
+        const response = await fetchDataTiposDoc();
+        setTipoDoc(response);
+      } catch (error) {
+        console.error('Error en la petición:', error);
+      }
+    };
+
+    fetchDataTiposD();
+  }, []); 
+
+
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    // almacenamos la infromacion de registro en un arreglo
-    const instructorData = {
-      id: uuidv4(),
-      nombreInstructor,
-      apellidoInstructor,
-      estadoInstructor,
-      horasSemanales,
-      imagenInstructor,
-      idTpoIdentificacionFK,
-    };
-
-    // Metodo POST que utilizamos para agregar el instructor a nuestra bd
-    // Mejorar codigo para cumplir con buenas practicas
     try {
-      await axios.post('http://localhost:3000/instructor', instructorData);
+      const instructorData = {
+        nombreInstructor,
+        apellidoInstructor,
+        estadoInstructor,
+        horasSemanales,
+        imagenInstructor,
+        idTipoIdentificacionFK,
+        numDocInst,
+      };
 
-        // Manejo de error
-        if(!instructorData.nombreInstructor){
-          return new error ("Nombre requerido", { status: 400 })
-        }
-        if(!instructorData.apellidoInstructor){
-          return new error ("Apellido requerido", { status: 400 })
-        }
-        if(!instructorData.estadoInstructor){
-          return new error ("Estado requerido", { status: 400 })
-        }
-        if(!instructorData.horasSemanales){
-          return new error ("Horas requerido", { status: 400 })
-        }
-        if(!instructorData.imagenInstructor){
-          return new error ("Imagen requerido", { status: 400 })
-        }
-        if(!instructorData.idTpoIdentificacionFK){
-          return new error ("Tipo identificación requerido", { status: 400 })
-        }
+      await registrarInstructor(instructorData);
 
-        console.log("Registrado")
-        window.location.reload(); // Recarga la página
+      // Aquí podrías realizar alguna acción adicional después de registrar el instructor,
+      // como redirigir a una nueva página o mostrar un mensaje de éxito.
+      console.log('Instructor registrado exitosamente');
     } catch (error) {
-        console.log("REGISTER_PATCH", error)
-        return new error("Internal error", {status: 500})
+      // Puedes manejar errores aquí si es necesario.
+      console.error('Error al registrar el instructor:', error.message);
     }
   };
-
   return (
     <>
       <h1 className='text-center text-2xl font-bold uppercase'>Registrar instructor</h1>
@@ -85,6 +78,14 @@ export const FormInstructor = () => {
               onChange={setApellidoInstructor} 
               inputProps={{ id: "apeInstructor" }}
               />
+              <InputLabel 
+              col="4"
+              label={"Numero Doc"}
+              htmlId="numDocInst"
+              value={numDocInst}
+              onChange={setNumDocInst} 
+              inputProps={{ id: "numDocInst" }}
+              />
             <select
               className='appearance-none mt-4 col-span-4 text-lg text-gray-500 p-2 font-light rounded-sm shadow-md outline-none border'
               value={estadoInstructor}
@@ -95,13 +96,16 @@ export const FormInstructor = () => {
             </select>
             <select
                 className='appearance-none mt-4 col-span-4 text-lg text-gray-500 p-2 font-light rounded-sm shadow-md outline-none border'
-                name="idTpoIdentificacionFK"
-                value={idTpoIdentificacionFK}
-                onChange={(e) => setidTpoIdentificacionFK(e.target.value, 10)}
+                name="idTipoIdentificacionFK"
+                value={idTipoIdentificacionFK}
+                onChange={(e) => setIdTipoIdentificacionFK(e.target.value, 10)}
               >
-                <option value="1">Cedula Ciudadania</option>
-                <option value="2">Tarjeta Identidad</option> 
-                <option value="3">Cedula Extranjeria</option> 
+                {
+                  // Mapeo de la informacion que pertenece al parametro tipos doc en bd 
+                  tiposDoc.typesdocs.map((tipo)=>(
+                    <option key={tipo.idTipoIdent} value={(tipo.idTipoIdent)}>{tipo.nombreTipoIdent}</option>
+                  ))
+                }
               </select>
             <InputLabel 
               col="4"

@@ -12,31 +12,52 @@ import Cookies from 'js-cookie';
 export const InstructorPage = () => {
   // Informacion recolectada del metodo GET de nuestra bd 
   const [data, setData] = useState({ instructores: [] })
-  const token = Cookies.get('token')
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
 
   useEffect(() => {
+    let isMounted = true;
+
     const fetchDataOnMount = async () => {
       try {
         const response = await fetchData();
-        setData(response);
-        console.log('Respuesta:', response);
-        console.log('Token:', token);
+        if (isMounted) {
+          setData(response);
+        }
       } catch (error) {
-        console.error('Error en la petición:', error);
+        if (isMounted) {
+          console.error('Error en la petición:', error);
+          setError(error.message || 'Error en la petición');
+        }
+      } finally {
+        // Indicar que la carga ha finalizado, independientemente del resultado
+        if (isMounted) {
+          setLoading(false);
+        }
       }
     };
 
     fetchDataOnMount();
-  }, []); 
+
+    // Función de limpieza para cancelar la solicitud si el componente se desmonta
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
   return (
     <LayoutPage 
       desc="Gestione los instructores registrados"
       title={`INSTRUCTORES (${data.instructores.length})`}>
       <ModalInstructor/>
       <Tab.Panels>
-        <Tab.Panel>   
+        <Tab.Panel>
+        {loading && <p>Cargando...</p>}
+        {error && <p>Error: {error}</p>}
+        {data && (
           <TableInstructor/>
+        )}
         </Tab.Panel>
         <Tab.Panel>
           <FormInstructor/>

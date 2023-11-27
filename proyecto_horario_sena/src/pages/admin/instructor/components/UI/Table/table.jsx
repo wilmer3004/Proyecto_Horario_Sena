@@ -3,7 +3,6 @@
 import {useState, useEffect} from 'react';
 import { fetchData } from '../../../data/sendRequest';
 import {MenuInstructor} from '../select/select';
-import Cookies from 'js-cookie';
 
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -18,7 +17,6 @@ import Paper from '@mui/material/Paper';
 export const TableInstructor = ()=> {
   // Almacena la informacion traida desde la peticion get
   const [data, setData] = useState({ instructores: [] })
-  const token = Cookies.get('token')
 
 
   useEffect(() => {
@@ -26,8 +24,7 @@ export const TableInstructor = ()=> {
       try {
         const response = await fetchData();
         setData(response);
-        console.log('Respuesta:', response);
-        console.log('Token:', token);
+        console.log("Response correcto")
       } catch (error) {
         console.error('Error en la petición:', error);
       }
@@ -45,13 +42,16 @@ export const TableInstructor = ()=> {
               <TableCell>
                 <p className='text-base font-bold '>Nombre instructor</p>
               </TableCell>
-              <TableCell align="center">
+              <TableCell align='center'>
+                <p className='text-base font-bold '>Numero documento</p>
+              </TableCell>
+              <TableCell align='center'>
                 <p className='text-base font-bold '>Id Instructor</p>
               </TableCell>
-              <TableCell align="center">
+              <TableCell align='center'>
                 <p className='text-base font-bold '>Estado Instructor</p>
               </TableCell>
-              <TableCell align="center">
+              <TableCell align='center'>
                 <p className='text-base font-bold '>Horas Semanales</p>
               </TableCell>
               <TableCell align="right">
@@ -69,11 +69,12 @@ export const TableInstructor = ()=> {
                 <TableCell component="th" scope="row">
                   {row.nombreInstructor}
                 </TableCell>
-                <TableCell align="right">{row.idInstructor}</TableCell>
-                <TableCell align="right">{row.estadoInstructor === 1 ? "Activo": "Inactivo"}</TableCell>
-                <TableCell align="right">{row.horasSemanales} Horas</TableCell>
-                <TableCell align="right">{row.idTpoIdentificacionFK === 1 ? "CC" : (row.idTpoIdentificacionFK === "2" ? "TC" : (row.idTpoIdentificacionFK === "3" ? "CE" : "Otro"))}</TableCell>
-                <TableCell align="right">
+                <TableCell align="center">{row.numDocInst}</TableCell>
+                <TableCell align="center">{row.idInstructor}</TableCell>
+                <TableCell align="center">{row.estadoInstructor === 1 ? "Activo": (row.estadoInstructor === 0 ? "Inactivo" : "undefined")}</TableCell>
+                <TableCell align="center">{row.horasSemanales} Horas</TableCell>
+                <TableCell align="right">{row.idTpoIdentificacionFK === 1 ? "CC" : (row.idTpoIdentificacionFK === 4 ? "TC" : (row.idTpoIdentificacionFK === 5 ? "CE" : "Otro"))}</TableCell>
+                <TableCell align="center">
                   {/* Modal que nos permie actualizar y eliminar la informacion del instructor mediante el id */}
                   <MenuInstructor 
                     id={row.idInstructor}
@@ -83,6 +84,7 @@ export const TableInstructor = ()=> {
                     horasSemanales={row.horasSemanales}
                     estadoInstructor={row.estadoInstructor}
                     idTpoIdentificacionFK={row.idTpoIdentificacionFK}
+                    numDocInst={row.numDocInst}
                     />
                 </TableCell>
               </TableRow>

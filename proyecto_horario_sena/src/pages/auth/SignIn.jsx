@@ -58,6 +58,7 @@ const SignIn = () => {
         Cookies.set('token', token);
 
         navigate('/', { replace: true });
+        window.location.reload()
       } else {
         setResult('Error al iniciar sesión.');
       }

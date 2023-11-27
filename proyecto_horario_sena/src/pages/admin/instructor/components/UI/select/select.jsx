@@ -21,6 +21,7 @@ export const MenuInstructor = ({
   horasSemanales,
   imagenInstructor,
   idTpoIdentificacionFK,
+  numDocInst
 }) => {
   
   const [open, setOpen] = React.useState(false)
@@ -84,6 +85,7 @@ export const MenuInstructor = ({
         horasSemanales={horasSemanales}
         estadoInstructor={estadoInstructor}
         idTpoIdentificacionFK={idTpoIdentificacionFK}
+        numDocInst={numDocInst}
       />
       {/* Ventana modale que deja eliminar al instructor  */}
       <ModalDelet
