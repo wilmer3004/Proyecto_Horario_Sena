@@ -72,6 +72,7 @@ export const HorarioPage = () => {
     const mensajes = {
       primerSetPosiciones: { mensajePrincipal: "lenguaje backend javaScript", nombre: "Andres", ficha:"2687378", aula:"403" },
       segundoSetPosiciones: { mensajePrincipal: "fundamentos desarrollo movil nativo", nombre: "Uldarico", ficha:"2687378", aula:"403" },
+      tercerSetPosiciones: { mensajePrincipal: "Ingles", nombre: "Halan", ficha:"2687378", aula:"403" },
     };
     
     const nuevaGrilla = Array(36).fill({ mensajePrincipal: '', nombre: '' });
@@ -97,6 +98,7 @@ export const HorarioPage = () => {
     const conjuntosPosiciones = {
       primerSetPosiciones: [1, 7, 19],
       segundoSetPosiciones: [2, 8, 20],
+      tercerSetPosiciones: [3, 9, 21],
     };
     
     actualizarGrilla(conjuntosPosiciones);
@@ -127,7 +129,7 @@ export const HorarioPage = () => {
       } */}
         <div className="text-center text-xs grid grid-cols-6 grid-rows-7 gap-4 ">
           {gridContent.map((contenido, index) => (
-            <div key={index} className="rounded-md py-3 col-span-1 row-span-1 bg-gray-200 flex flex-col items-center justify-center">
+            <div key={index} className="rounded-md py-3 col-span-1 row-span-1 bg-gray-200 flex flex-col items-center justify-center gap-2">
               <p className='font-bold uppercase'>{contenido.mensajePrincipal}</p>
               <p className='uppercase bg-blue-200 w-full'>{contenido.nombre}</p>
               <p className='uppercase'>{contenido.ficha}</p>
