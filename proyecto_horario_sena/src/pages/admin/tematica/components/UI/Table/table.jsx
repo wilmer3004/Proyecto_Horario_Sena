@@ -1,7 +1,6 @@
 "use client";
 
-import * as React from 'react';
-import { tematicaData } from '../../../data/sendRequest';
+import { fetchData } from '../../../data/sendRequest';
 import { MenuTematica } from '../select/select';
 
 
@@ -12,12 +11,26 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import { useEffect, useState } from 'react';
 
 
 
 export const TableTematica = ()=> {
   // Almacena la informacion traida desde la peticion get
-  const rows = tematicaData()
+  const [data, setData] = useState({tematica: []})
+
+  useEffect(() =>{
+    const fetchDataOnMount = async ()=>{
+      try {
+        const response = await fetchData();
+        setData(response);
+        console.log("Response correcto");
+      } catch (error) {
+        console.error('Error en la peticion', error);
+      }
+    };
+    fetchDataOnMount();
+  }, []);
 
   return (
     <div className='pt-2 border border-gray-200 rounded-lg'>
@@ -48,9 +61,10 @@ export const TableTematica = ()=> {
           </TableHead>
           <TableBody>
             {/* mapeamos la informacion retornada desde el get y las mostramos cada una  */}
-            {rows.map((row) => (
+            {data.tematica.map((row) => (
               <TableRow
-                key={row.id}
+              // Revisar como esta la key
+                key={row.idTematica}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
               >
                 <TableCell component="th" scope="row">

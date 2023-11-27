@@ -15,6 +15,7 @@ import { FichaPage } from "./pages/admin/ficha/FichaPage";
 import { TrimestrePage } from "./pages/admin/trimestre/trimestrePage";
 import { HomePage } from "./pages/admin/home/home";
 import { HorarioPage } from "./pages/admin/horario/horario";
+import { ProgramaPage } from "./pages/admin/programa/programa";
 
 function App() {
 
@@ -26,10 +27,11 @@ function App() {
           <Route path="/index" element={<LayoutAdmin/>}>
             <Route path="home" element={<HomePage/>}/>
             <Route path="sede" element={<SedePage/>}/>
-            <Route path="instructores" element={<InstructorPage/>}/>
-            <Route path="tematicas" element={<TematicaPage/>}/>
-            <Route path="fichas" element={<FichaPage/>}/>
-            <Route path="trimestres" element={<TrimestrePage/>}/>
+            <Route path="instructor" element={<InstructorPage/>}/>
+            <Route path="tematica" element={<TematicaPage/>}/>
+            <Route path="ficha" element={<FichaPage/>}/>
+            <Route path="programa" element={<ProgramaPage/>}/>
+            <Route path="trimestre" element={<TrimestrePage/>}/>
             <Route path="horario" element={<HorarioPage/>}/>
           </Route >
         <Route path="*" element={<Error404 />} />

@@ -10,8 +10,8 @@ import { Link } from "react-router-dom";
 
 const ForgetPassword = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center p-4">
-      <div className="bg-secondary-900 p-8 rounded-xl flex flex-col gap-4 shadow-2xl w-auto lg:w-[450px]">
+    <div className="min-h-screen flex items-center justify-center p-4 bg-gradient-to-r from-cyan-500 to-blue-500">
+      <div className="bg-secondary-900 p-8 rounded-lg flex flex-col gap-4 shadow-blue-950 shadow-lg w-auto lg:w-[450px]">
         <div className="flex items-center justify-center">
           <img
             src="./public/logoSenaCort.png"

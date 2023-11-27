@@ -7,7 +7,7 @@ import { TOKEN } from '../../../../utils/httpRequest';
 
 const endpoint = 'instructor';
 
-let alertShown = false;
+let alertShow = false;
 
 
 // GET
@@ -29,11 +29,11 @@ export const fetchData = async ()=>{
   }catch (error){
 
     if (error.response && error.response.status === 401) {
-      if (!alertShown) {
+      if (!alertShow) {
         // Aquí podrías intentar renovar el token o redirigir al usuario a la página de inicio de sesión
         // Si tu backend admite la renovación de tokens, podrías implementar esa lógica aquí
         alert('La sesión ha caducado. Serás redirigido al inicio de sesión.');
-        alertShown = true; // Marcar que la alerta ha sido mostrada
+        alertShow = true; // Marcar que la alerta ha sido mostrada
         window.location.href = '/'; // Ajusta la URL según tu estructura de rutas
       }
       return null;

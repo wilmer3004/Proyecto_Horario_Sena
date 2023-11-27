@@ -33,8 +33,8 @@ export const SidebarBody = () => {
       </div>
       <div className='text-center flex flex-col items-center justify-center gap-2 pt-5'>
         <img className='object-cover h-6 ' src="./logoSena.png" alt="" />
-        <p className='text-[10px] text-secondary-100'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt </p>
-        <Link className='text-[12px] border-b-2 border-secondary-100/60 text-secondary-100/60 hover:text-secondary-100 hover:border-secondary-100 transition-colors' to="/">support@soy.sena.edu.co</Link>
+        <p className='text-[10px] text-secondary-100'>El SENA es nuestra estrella y tiene que seguir alumbrando</p>
+        <a className='text-[12px] border-b-2 border-secondary-100/60 text-secondary-100/60 hover:text-secondary-100 hover:border-secondary-100 transition-colors' to="/">horariossena92@gmail.com</a>
       </div>
     </div>
   )
