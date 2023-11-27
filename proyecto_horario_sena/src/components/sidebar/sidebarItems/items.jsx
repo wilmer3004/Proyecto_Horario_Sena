@@ -15,5 +15,5 @@ export const items = [
   {icono: <RiTv2Line className='w-6 h-6'/> ,          title:'PROGRAMA',    to: '/'},
   {icono: <RiBuilding4Line className='w-6 h-6'/> ,    title:'SEDE',        to: 'sede'},
   {icono: <RiListOrdered className='w-6 h-6'/>,       title:'TRIMESTRE',   to: '/trimestres'},
-  {icono: <RiCalendarTodoLine className='w-6 h-6'/>,  title:'HORARIO',     to: '/'},
+  {icono: <RiCalendarTodoLine className='w-6 h-6'/>,  title:'HORARIO',     to: '/horario'},
 ]

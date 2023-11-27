@@ -15,25 +15,31 @@ export const FormInstructor = () => {
   const [numDocInst, setNumDocInst] = useState('');
 
   const [tiposDoc, setTipoDoc ] = useState({typesdocs: []})
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchDataTiposD = async () => {
       try {
+        setLoading(true);
         const response = await fetchDataTiposDoc();
         setTipoDoc(response);
       } catch (error) {
-        console.error('Error en la petición:', error);
+        console.error('Error en la petición de tipos de documentos:', error);
+        setError('Error al cargar tipos de documentos');
+      } finally {
+        setLoading(false);
       }
     };
 
     fetchDataTiposD();
-  }, []); 
+  }, []);
 
 
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
+  
     try {
       const instructorData = {
         nombreInstructor,
@@ -44,17 +50,16 @@ export const FormInstructor = () => {
         idTipoIdentificacionFK,
         numDocInst,
       };
-
+  
       await registrarInstructor(instructorData);
-
-      // Aquí podrías realizar alguna acción adicional después de registrar el instructor,
-      // como redirigir a una nueva página o mostrar un mensaje de éxito.
+  
+      // Realizar acciones adicionales después de registrar el instructor, si es necesario.
       console.log('Instructor registrado exitosamente');
     } catch (error) {
-      // Puedes manejar errores aquí si es necesario.
+      // Manejar errores, mostrando un mensaje o realizando alguna acción específica.
       console.error('Error al registrar el instructor:', error.message);
     }
-  };
+  }
   return (
     <>
       <h1 className='text-center text-2xl font-bold uppercase'>Registrar instructor</h1>
@@ -94,6 +99,9 @@ export const FormInstructor = () => {
               <option value="1">Activo</option>
               <option value="0">Inactivo</option>
             </select>
+            {loading && <p>Cargando tipos de documentos...</p>}
+            {error && <p>Error: {error}</p>}
+            {tiposDoc && (
             <select
                 className='appearance-none mt-4 col-span-4 text-lg text-gray-500 p-2 font-light rounded-sm shadow-md outline-none border'
                 name="idTipoIdentificacionFK"
@@ -107,6 +115,7 @@ export const FormInstructor = () => {
                   ))
                 }
               </select>
+              )}
             <InputLabel 
               col="4"
               label={"Horas Semanales"}

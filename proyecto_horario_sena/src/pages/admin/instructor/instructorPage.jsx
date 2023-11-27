@@ -7,7 +7,6 @@ import { TableInstructor} from './components/UI/Table/table';
 import { ModalInstructor } from './components/UI/modal/modal';
 import { FormInstructor } from './components/UI/form/form';
 
-import Cookies from 'js-cookie';
 
 export const InstructorPage = () => {
   // Informacion recolectada del metodo GET de nuestra bd 

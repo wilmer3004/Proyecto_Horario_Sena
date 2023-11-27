@@ -15,6 +15,7 @@ import { TematicaPage } from "./pages/admin/tematica/tematicaPage";
 import { FichaPage } from "./pages/admin/ficha/FichaPage";
 import { TrimestrePage } from "./pages/admin/trimestre/trimestrePage";
 import { HomePage } from "./pages/admin/home/home";
+import { HorarioPage } from "./pages/admin/horario/horario";
 
 function App() {
 
@@ -31,6 +32,7 @@ function App() {
             <Route path="tematicas" element={<TematicaPage/>}/>
             <Route path="fichas" element={<FichaPage/>}/>
             <Route path="trimestres" element={<TrimestrePage/>}/>
+            <Route path="horario" element={<HorarioPage/>}/>
           </Route >
         <Route path="*" element={<Error404 />} />
       </Routes>
