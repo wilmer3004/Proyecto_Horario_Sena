@@ -2,7 +2,6 @@ import { BrowserRouter, Routes, Route} from "react-router-dom";
 
 // Pages auth
 import SignIn from "./pages/auth/SignIn";
-import SignOut from "./pages/auth/SignOut";
 import ForgetPassword from "./pages/auth/ForgetPassword";
 import Error404 from "./pages/Error404";
 
@@ -22,10 +21,9 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/login" element={<SignIn/>}/>
-        <Route path="/registro" element={<SignOut/>} />
+        <Route path="/" element={<SignIn/>}/>
         <Route path="/olvide-mi-contraseña" element={<ForgetPassword/>} />
-          <Route path="/" element={<LayoutAdmin/>}>
+          <Route path="/index" element={<LayoutAdmin/>}>
             <Route path="home" element={<HomePage/>}/>
             <Route path="sede" element={<SedePage/>}/>
             <Route path="instructores" element={<InstructorPage/>}/>

@@ -14,7 +14,7 @@ let alertShown = false;
 export const fetchData = async ()=>{
 
   if (!TOKEN){
-    window.location.href = '/login'
+    window.location.href = '/'
 
     return null
   }
@@ -34,7 +34,7 @@ export const fetchData = async ()=>{
         // Si tu backend admite la renovación de tokens, podrías implementar esa lógica aquí
         alert('La sesión ha caducado. Serás redirigido al inicio de sesión.');
         alertShown = true; // Marcar que la alerta ha sido mostrada
-        window.location.href = '/login'; // Ajusta la URL según tu estructura de rutas
+        window.location.href = '/'; // Ajusta la URL según tu estructura de rutas
       }
       return null;
     }
@@ -48,7 +48,7 @@ export const fetchData = async ()=>{
 // Metodo PUT 
 export const actualizarInstructor = async (id, instructorData, handleClose) => {
   if (!TOKEN) {
-    window.location.href = '/login';
+    window.location.href = '/';
     return null;
   }
 
@@ -109,7 +109,7 @@ export const actualizarInstructor = async (id, instructorData, handleClose) => {
 //   Metodo POST 
 export const registrarInstructor = async (instructorData) => {
   if (!TOKEN){
-    window.location.href = '/login'
+    window.location.href = '/'
     return null
   }
 
@@ -168,7 +168,7 @@ export const registrarInstructor = async (instructorData) => {
 // Metodo DELETE 
 export const eliminarInstructor = (id) => {
   if (!TOKEN) {
-    window.location.href = '/login?error=no_token';
+    window.location.href = '/?error=no_token';
     return Promise.reject(new Error('No hay token disponible.'));
   }
 
@@ -192,7 +192,7 @@ export const eliminarInstructor = (id) => {
 export const fetchDataTiposDoc = async ()=>{
 
   if (!TOKEN){
-    window.location.href = '/login'
+    window.location.href = '/'
 
     return null
   }

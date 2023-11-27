@@ -73,6 +73,7 @@ export const HorarioPage = () => {
       primerSetPosiciones: { mensajePrincipal: "lenguaje backend javaScript", nombre: "Andres", ficha:"2687378", aula:"403" },
       segundoSetPosiciones: { mensajePrincipal: "fundamentos desarrollo movil nativo", nombre: "Uldarico", ficha:"2687378", aula:"403" },
       tercerSetPosiciones: { mensajePrincipal: "Ingles", nombre: "Halan", ficha:"2687378", aula:"403" },
+      cuartoSetPosiciones: { mensajePrincipal: "Java", nombre: "Andres", ficha:"2687378", aula:"403" },
     };
     
     const nuevaGrilla = Array(36).fill({ mensajePrincipal: '', nombre: '' });
@@ -99,6 +100,7 @@ export const HorarioPage = () => {
       primerSetPosiciones: [1, 7, 19],
       segundoSetPosiciones: [2, 8, 20],
       tercerSetPosiciones: [3, 9, 21],
+      cuartoSetPosiciones: [4, 10, 22],
     };
     
     actualizarGrilla(conjuntosPosiciones);
