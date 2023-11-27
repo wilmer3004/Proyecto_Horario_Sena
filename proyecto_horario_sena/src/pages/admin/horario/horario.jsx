@@ -66,24 +66,27 @@ export const HorarioPage = () => {
     
   }, [])
 
-  const [gridContent, setGridContent] = useState(Array(30).fill(''));
+    const [gridContent, setGridContent] = useState(Array(36).fill({ mensajePrincipal: '', nombre: '' }));
 
   const actualizarGrilla = (conjuntosPosiciones) => {
     const mensajes = {
-      primerSetPosiciones: "Java",
-      segundoSetPosiciones: "Python",
-      tercerSetPosiciones: "JavaScrpt",
-      cuartaSetPosiciones: "Bases de datos no relacionales"
+      primerSetPosiciones: { mensajePrincipal: "lenguaje backend javaScript", nombre: "Andres", ficha:"2687378", aula:"403" },
+      segundoSetPosiciones: { mensajePrincipal: "fundamentos desarrollo movil nativo", nombre: "Uldarico", ficha:"2687378", aula:"403" },
     };
     
-    const nuevaGrilla = Array(30).fill('').map((_, index) => index + 1);
+    const nuevaGrilla = Array(36).fill({ mensajePrincipal: '', nombre: '' });
+
+    // Añadir fila de descanso tres filas arriba de la fila 11
+    nuevaGrilla.splice(12, 0, ...Array(6).fill({ mensajePrincipal: 'Descanso', nombre: '' }));
+    // Añadir fila de descanso tres filas arriba de la fila 18
+    nuevaGrilla.splice(24, 0, ...Array(6).fill({ mensajePrincipal: 'Descanso', nombre: '' }));
     
     Object.keys(conjuntosPosiciones).forEach((conjunto) => {
       conjuntosPosiciones[conjunto].forEach((posicion, i) => {
         const fila = Math.floor((posicion - 1) / 5);
         const columna = (posicion - 1) % 5;
         const index = columna + fila * 5;
-        nuevaGrilla[index] = mensajes[conjunto] || `Hola (${fila + 1}, ${columna + 1})`;
+        nuevaGrilla[index] = mensajes[conjunto] || { mensajePrincipal: '', nombre: '' };
       });
     });
 
@@ -92,17 +95,14 @@ export const HorarioPage = () => {
 
   useEffect(() => {
     const conjuntosPosiciones = {
-      primerSetPosiciones: [12, 13, 14],
-      segundoSetPosiciones: [17, 18, 19],
-      tercerSetPosiciones: [22, 23],
-      cuartaSetPosiciones: [2,3,4],
-
+      primerSetPosiciones: [1, 7, 19],
+      segundoSetPosiciones: [2, 8, 20],
     };
     
     actualizarGrilla(conjuntosPosiciones);
   }, []);
 
-
+  // buscar la manera de agregar los datos quemados de dias y horas al horarios, idea hacerun layout que tenga un children y dentro de ella se muestren el renderizado 
   return (
     <>
       {/* {loading && <p>Cargando...</p>}
@@ -125,11 +125,16 @@ export const HorarioPage = () => {
           </div>
         ))
       } */}
-      <div className="grid text-center  grid-cols-5 grid-rows-6 gap-4">
-        {gridContent.map((contenido, index) => (
-          <div key={index} className=" p-4  col-span-1 row-span-1 bg-gray-200">{contenido}</div>
-        ))}
-      </div>
+        <div className="text-center text-xs grid grid-cols-6 grid-rows-7 gap-4 ">
+          {gridContent.map((contenido, index) => (
+            <div key={index} className="rounded-md py-3 col-span-1 row-span-1 bg-gray-200 flex flex-col items-center justify-center">
+              <p className='font-bold uppercase'>{contenido.mensajePrincipal}</p>
+              <p className='uppercase bg-blue-200 w-full'>{contenido.nombre}</p>
+              <p className='uppercase'>{contenido.ficha}</p>
+              <p className='uppercase'>{contenido.aula}</p>
+            </div>
+          ))}
+        </div>
     </>
   )
 }
