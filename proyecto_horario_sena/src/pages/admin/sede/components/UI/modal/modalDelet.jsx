@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from 'react';
-import { eliminarInstructor } from '../../../data/sendRequest';
+import { eliminarSede } from '../../../data/sendRequest';
 
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -19,7 +19,7 @@ export const ModalDelet = ({
   // Metodo delet para elimianar el instructor
   const handleDeletInstructor = async () => {
     try{
-      await eliminarInstructor(id)
+      await eliminarSede(id)
       handleClose()
       window.location.reload(); 
     } catch (error) {
@@ -38,7 +38,7 @@ export const ModalDelet = ({
           <DialogContentText id="alert-dialog-description">
           <h5 className='mt-3 font-semibold text-lg uppercase pb-2'>Esta usted seguro ?</h5>
             <p className='px-2 text-gray-400'>
-             ¿Está seguro de eliminar al instructor? Con esta acción se desactivarán los datos del mismo y toda su información relacionada.  
+             ¿Está seguro de eliminar la Sede? Con esta acción se desactivarán los datos del mismo y toda su información relacionada.  
             </p>
           </DialogContentText>
         </DialogContent>

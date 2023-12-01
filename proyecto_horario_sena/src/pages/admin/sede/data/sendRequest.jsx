@@ -5,7 +5,7 @@ import { API_URL } from '../../../../utils/httpRequest';
 import axios from 'axios'
 import { TOKEN } from '../../../../utils/httpRequest';
 
-const endpoint = 'instructor';
+const endpoint = 'sede';
 
 let alertShow = false;
 
@@ -46,7 +46,7 @@ export const fetchData = async ()=>{
 
 
 // Metodo PUT 
-export const actualizarInstructor = async (id, instructorData, handleClose) => {
+export const actualizarSede = async (id, sedeData, handleClose) => {
   if (!TOKEN) {
     window.location.href = '/';
     return null;
@@ -59,37 +59,31 @@ export const actualizarInstructor = async (id, instructorData, handleClose) => {
 
   try {
     // Validación de campos
-    if (!instructorData.nombreInstructor) {
+    if (!sedeData.nombreSede) {
       throw new Error("Nombre requerido");
     }
-    if (!instructorData.apellidoInstructor) {
-      throw new Error("Apellido requerido");
+    if (!sedeData.direccionSede) {
+      throw new Error("Direccion requerida");
     }
-    if (instructorData.estadoInstructor === undefined || instructorData.estadoInstructor === null) {
+    if (sedeData.estadoSede === undefined || sedeData.estadoSede === null) {
       throw new Error("Estado requerido");
     }
-    if (!instructorData.horasSemanales) {
-      throw new Error("Horas requerido");
+    if (!sedeData.idLocalidadFK) {
+      throw new Error("Localidad requerida");
     }
-    if (!instructorData.imagenInstructor) {
-      throw new Error("Imagen requerido");
-    }
-    if (!instructorData.idTpoIdentificacionFK) {
-      throw new Error("Tipo identificación requerido");
-    }
-    if (!instructorData.numDocInst) {
-      throw new Error("Numero identificación requerido");
+    if (!sedeData.imagenSede) {
+      throw new Error("Imagen requerida");
     }
 
     // Realizar la solicitud PUT
-    await axios.put(`${API_URL}/${endpoint}/${id}`, instructorData, { headers });
+    await axios.put(`${API_URL}/${endpoint}/${id}`, sedeData, { headers });
 
     // Cierre del modal u otra acción después de la actualización
     handleClose();
 
-    console.log(`Instructor con ID ${id} actualizado correctamente`);
+    console.log(`Sede con ID ${id} actualizado correctamente`);
   } catch (error) {
-    console.error("INSTRUCTOR_PATCH", error);
+    console.error("SEDE_PATCH", error);
 
     // Manejo específico de errores
     if (error.response && error.response.status === 400) {
@@ -107,7 +101,7 @@ export const actualizarInstructor = async (id, instructorData, handleClose) => {
 
   
 //   Metodo POST 
-export const registrarInstructor = async (instructorData) => {
+export const registrarSede = async (sedeData) => {
   if (!TOKEN){
     window.location.href = '/'
     return null
@@ -120,33 +114,29 @@ export const registrarInstructor = async (instructorData) => {
 
   try {
     // Validación de campos
-    if (!instructorData.nombreInstructor) {
+    if (!sedeData.nombreSede) {
       throw new Error("Nombre requerido");
-
-      
     }
-    if (!instructorData.apellidoInstructor) {
-      throw new Error("Apellido requerido");
+    if (!sedeData.direccionSede) {
+      throw new Error("Direccion requerida");
     }
-    if (instructorData.estadoInstructor === undefined || instructorData.estadoInstructor === null) {
+    if (sedeData.estadoSede === undefined || sedeData.estadoSede === null) {
       throw new Error("Estado requerido");
     }
-    if (!instructorData.horasSemanales) {
-      throw new Error("Horas requerido");
+    if (!sedeData.idLocalidadFK) {
+      throw new Error("Localidad requerida");
     }
-    if (!instructorData.imagenInstructor) {
-      throw new Error("Imagen requerido");
-    }
-    if (!instructorData.idTipoIdentificacionFK) {
-      throw new Error("Tipo identificación requerido");
+    if (!sedeData.imagenSede) {
+      throw new Error("Imagen requerida");
     }
 
+
     await axios.post(`${API_URL}/${endpoint}/`,
-      instructorData,
+      sedeData,
       {headers}
     );
 
-    console.log("Instructor registrado correctamente");
+    console.log("Sede registrado correctamente");
     window.location.reload(); // Recarga la página
   } catch (error) {
     console.error("REGISTER_PATCH", error);
@@ -166,7 +156,7 @@ export const registrarInstructor = async (instructorData) => {
 };
 
 // Metodo DELETE 
-export const eliminarInstructor = (id) => {
+export const eliminarSede = (id) => {
   if (!TOKEN) {
     window.location.href = '/?error=no_token';
     return Promise.reject(new Error('No hay token disponible.'));

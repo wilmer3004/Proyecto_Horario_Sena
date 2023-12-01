@@ -2,7 +2,7 @@
 
 import {useState, useEffect} from 'react';
 import { fetchData } from '../../../data/sendRequest';
-import {MenuInstructor} from '../select/select';
+import {MenuSede} from '../select/select';
 
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -14,9 +14,9 @@ import Paper from '@mui/material/Paper';
 
 
 
-export const TableInstructor = ()=> {
+export const TableSede = ()=> {
   // Almacena la informacion traida desde la peticion get
-  const [data, setData] = useState({ instructores: [] })
+  const [data, setData] = useState({ sedes: [] })
 
 
   useEffect(() => {
@@ -40,51 +40,49 @@ export const TableInstructor = ()=> {
           <TableHead>
             <TableRow>
               <TableCell>
-                <p className='text-base font-bold '>Nombre instructor</p>
+                <p className='text-base font-bold '>Nombre Sede</p>
               </TableCell>
               <TableCell align='center'>
-                <p className='text-base font-bold '>Numero documento</p>
+                <p className='text-base font-bold '> Direccion Sede</p>
               </TableCell>
               <TableCell align='center'>
-                <p className='text-base font-bold '>Id Instructor</p>
+                <p className='text-base font-bold '>Estado Sede</p>
               </TableCell>
               <TableCell align='center'>
-                <p className='text-base font-bold '>Estado Instructor</p>
+                <p className='text-base font-bold '>ID Sede</p>
               </TableCell>
               <TableCell align='center'>
-                <p className='text-base font-bold '>Horas Semanales</p>
+                <p className='text-base font-bold '>Imagen Sede</p>
               </TableCell>
               <TableCell align="right">
-              <p className='text-base font-bold '>Tipo identificación</p>
+              <p className='text-base font-bold '>Localidad</p>
               </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {/* mapeamos la informacion retornada desde el get y las mostramos cada una  */}
-            {data.instructores.map((row) => (
+            {data.sedes.map((row) => (
               <TableRow
                 key={row.id}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
               >
                 <TableCell component="th" scope="row">
-                  {row.nombreInstructor}
+                  {row.nombreSede}
                 </TableCell>
-                <TableCell align="center">{row.numDocInst}</TableCell>
-                <TableCell align="center">{row.idInstructor}</TableCell>
-                <TableCell align="center">{row.estadoInstructor === 1 ? "Activo": (row.estadoInstructor === 0 ? "Inactivo" : "undefined")}</TableCell>
-                <TableCell align="center">{row.horasSemanales} Horas</TableCell>
-                <TableCell align="right">{row.idTpoIdentificacionFK === 1 ? "CC" : (row.idTpoIdentificacionFK === 4 ? "TC" : (row.idTpoIdentificacionFK === 5 ? "CE" : "Otro"))}</TableCell>
+                <TableCell align="center">{row.direccionSede}</TableCell>
+                <TableCell align="center">{row.idSede}</TableCell>
+                <TableCell align="center">{row.estadoSede === 1 ? "Activo": (row.estadoInstructor === 0 ? "Inactivo" : "undefined")}</TableCell>
+                <TableCell align="center">{row.imagenSede} </TableCell>
+                <TableCell align="center">{row.idLocalidadFK}</TableCell>
                 <TableCell align="center">
                   {/* Modal que nos permie actualizar y eliminar la informacion del instructor mediante el id */}
-                  <MenuInstructor 
-                    id={row.idInstructor}
-                    imagenInstructor={row.imagenInstructor}
-                    nombreInstructor={row.nombreInstructor}
-                    apellidoInstructor={row.apellidoInstructor}
-                    horasSemanales={row.horasSemanales}
-                    estadoInstructor={row.estadoInstructor}
-                    idTpoIdentificacionFK={row.idTpoIdentificacionFK}
-                    numDocInst={row.numDocInst}
+                  <MenuSede 
+                    id={row.idSede}
+                    imagenSede={row.imagenSede}
+                    nombreSede={row.nombreSede}
+                    direccionSede={row.direccionSede}
+                    estadoSede={row.estadoSede}
+                    idLocalidadFK={row.idLocalidadFK}
                     />
                 </TableCell>
               </TableRow>

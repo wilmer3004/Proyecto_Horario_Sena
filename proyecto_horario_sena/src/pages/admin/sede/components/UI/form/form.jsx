@@ -1,39 +1,37 @@
 
 import { useState, useEffect } from 'react'
-import { fetchDataTiposDoc } from '../../../data/sendRequest';
-import { registrarInstructor } from '../../../data/sendRequest';
+// import { fetchDataTiposDoc } from '../../../data/sendRequest';
+import { registrarSede } from '../../../data/sendRequest';
 
 import { InputLabel } from '../../../../../../components/input/input'
 
 export const FormInstructor = () => {
-  const [nombreInstructor, setNombreInstructor] = useState('');
-  const [apellidoInstructor, setApellidoInstructor] = useState('');
-  const [estadoInstructor, setEstadoInstructor] = useState(1); // Valor predeterminado 1 para "Activo"
-  const [horasSemanales, setHorasSemanales] = useState('');
-  const [imagenInstructor, setImagenInstructor] = useState('');
-  const [idTipoIdentificacionFK, setIdTipoIdentificacionFK] = useState('');
-  const [numDocInst, setNumDocInst] = useState('');
+  const [nombreSede, setNombreSede] = useState('');
+  const [direccionSede, setDireccionSede] = useState('');
+  const [estadoSede, setEstadoSede] = useState(1); // Valor predeterminado 1 para "Activo"
+  const [imagenSede, setImagenSede] = useState('');
+  const [idLocalidadFK, setIdLocalidadFK] = useState(1);
 
-  const [tiposDoc, setTipoDoc ] = useState({typesdocs: []})
+  // const [tiposDoc, setTipoDoc ] = useState({typesdocs: []})
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    const fetchDataTiposD = async () => {
-      try {
-        setLoading(true);
-        const response = await fetchDataTiposDoc();
-        setTipoDoc(response);
-      } catch (error) {
-        console.error('Error en la petición de tipos de documentos:', error);
-        setError('Error al cargar tipos de documentos');
-      } finally {
-        setLoading(false);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchDataTiposD = async () => {
+  //     try {
+  //       setLoading(true);
+  //       const response = await fetchDataTiposDoc();
+  //       setTipoDoc(response);
+  //     } catch (error) {
+  //       console.error('Error en la petición de tipos de documentos:', error);
+  //       setError('Error al cargar tipos de documentos');
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
 
-    fetchDataTiposD();
-  }, []);
+  //   fetchDataTiposD();
+  // }, []);
 
 
 
@@ -41,65 +39,65 @@ export const FormInstructor = () => {
     event.preventDefault();
   
     try {
-      const instructorData = {
-        nombreInstructor,
-        apellidoInstructor,
-        estadoInstructor,
-        horasSemanales,
-        imagenInstructor,
-        idTipoIdentificacionFK,
-        numDocInst,
+      const sedeData = {
+        imagenSede,
+        nombreSede,
+        direccionSede,
+        estadoSede,
+        idLocalidadFK
       };
   
-      await registrarInstructor(instructorData);
+      await registrarSede(sedeData);
   
       // Realizar acciones adicionales después de registrar el instructor, si es necesario.
-      console.log('Instructor registrado exitosamente');
+      console.log('Sede registrada exitosamente');
     } catch (error) {
       // Manejar errores, mostrando un mensaje o realizando alguna acción específica.
-      console.error('Error al registrar el instructor:', error.message);
+      console.error('Error al registrar la sede:', error.message);
     }
   }
   return (
     <>
-      <h1 className='text-center text-2xl font-bold uppercase'>Registrar instructor</h1>
+      <h1 className='text-center text-2xl font-bold uppercase'>Registrar sede</h1>
       <form 
           className='flex flex-col items-center justify-center w-[880px]'
           onSubmit={handleSubmit}>
           <div className='grid grid-cols-8 p-4 items-center justify-center gap-x-2 gap-y-2 mb-4 w-[100%]'>
             <InputLabel
               col="4"
-              label={"Nombre"}
-              htmlId="nomInstructor"
-              value={nombreInstructor}
-              onChange={setNombreInstructor} 
-              inputProps={{ id: "nomInstructor" }}
+              label={"Nombre Sede"}
+              htmlId="nomSede"
+              value={nombreSede}
+              onChange={setNombreSede} 
+              inputProps={{ id: "nomSede" }}
               />
             <InputLabel 
               col="4"
-              label={"Apellidos"}
-              htmlId="apeInstructor"
-              value={apellidoInstructor}
-              onChange={setApellidoInstructor} 
-              inputProps={{ id: "apeInstructor" }}
-              />
-              <InputLabel 
-              col="4"
-              label={"Numero Doc"}
-              htmlId="numDocInst"
-              value={numDocInst}
-              onChange={setNumDocInst} 
-              inputProps={{ id: "numDocInst" }}
+              label={"Direccion sede"}
+              htmlId="direccionSede"
+              value={direccionSede}
+              onChange={setDireccionSede} 
+              inputProps={{ id: "direcSede" }}
               />
             <select
               className='appearance-none mt-4 col-span-4 text-lg text-gray-500 p-2 font-light rounded-sm shadow-md outline-none border'
-              value={estadoInstructor}
-              onChange={(e) => setEstadoInstructor(e.target.value, 10)}
+              value={estadoSede}
+              onChange={(e) => setEstadoSede(e.target.value, 10)}
             >
               <option value="1">Activo</option>
               <option value="0">Inactivo</option>
             </select>
-            {loading && <p>Cargando tipos de documentos...</p>}
+
+            <select 
+            className='appearance-none mt-4 col-span-4 text-lg text-gray-500 p-2 font-light rounded-sm shadow-md outline-none border'
+            name="idLocalidadFK"
+            value={idLocalidadFK}
+            >
+              <option value="1">Localidad 1</option>
+
+            </select>
+
+            {/* {loading && <p>Cargando localidades...</p>}
             {error && <p>Error: {error}</p>}
             {tiposDoc && (
             <select
@@ -115,25 +113,17 @@ export const FormInstructor = () => {
                   ))
                 }
               </select>
-              )}
-            <InputLabel 
-              col="4"
-              label={"Horas Semanales"}
-              value={horasSemanales}
-              htmlId="horInstructor"
-              onChange={setHorasSemanales} 
-              inputProps={{ id: "horInstructor" }}
-              />
+              )} */}
             <InputLabel 
               col="4"
               label={"Foto"}
-              value={imagenInstructor}
-              htmlId="imgInstructor"
-              onChange={setImagenInstructor} 
-              inputProps={{ id: "imgInstructor" }}
+              value={imagenSede}
+              htmlId="imgSede"
+              onChange={setImagenSede} 
+              inputProps={{ id: "imgSede" }}
               />
           </div>
-        <button className='bg-primary rounded-md text-center text-white shadow-md p-4' type="submit">Registrar Instructor</button>
+        <button className='bg-primary rounded-md text-center text-white shadow-md p-4' type="submit">Registrar Sede</button>
       </form>
     </>
   )

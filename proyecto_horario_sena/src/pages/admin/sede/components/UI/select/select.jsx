@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ModalInstructor } from '../modal/modal';
+import { ModalSede } from '../modal/modal';
 import { ModalDelet } from '../modal/modalDelet';
 
 
@@ -13,15 +13,13 @@ import {
   RiDeleteBin7Line
 } from "react-icons/ri";
 
-export const MenuInstructor = ({
+export const MenuSede = ({
   id, 
-  nombreInstructor,
-  apellidoInstructor,
-  estadoInstructor,
-  horasSemanales,
-  imagenInstructor,
-  idTpoIdentificacionFK,
-  numDocInst
+  imagenSede,
+  nombreSede,
+  direccionSede,
+  estadoSede,
+  idLocalidadFK
 }) => {
   
   const [open, setOpen] = React.useState(false)
@@ -75,24 +73,22 @@ export const MenuInstructor = ({
         <MenuItem onClick={handleopenModalDelet}><span className='mx-2 text-red-500'><RiDeleteBin7Line/></span>Eliminar</MenuItem>
       </Menu>
       {/* Ventana modal que ejecuta el metodo put y deja actualizar el Instructor */}
-      <ModalInstructor 
+      <ModalSede 
         open={openModal} 
         handleClose={()=> setOpenModal(false)} 
         id={id}
-        imagenInstructor={imagenInstructor}
-        nombreInstructor={nombreInstructor}
-        apellidoInstructor={apellidoInstructor}
-        horasSemanales={horasSemanales}
-        estadoInstructor={estadoInstructor}
-        idTpoIdentificacionFK={idTpoIdentificacionFK}
-        numDocInst={numDocInst}
+        imagenSede={imagenSede}
+        nombreSede={nombreSede}
+        direccionSede={direccionSede}
+        estadoSede={estadoSede}
+        idLocalidadFK={idLocalidadFK}
       />
       {/* Ventana modale que deja eliminar al instructor  */}
       <ModalDelet
         open={openModalDelet}
         handleClose={()=> setOpenModalDelet(false)}
         id={id}
-        nombreInstructor={nombreInstructor}
+        nombreSede={nombreSede}
       />
     </div>
   );
