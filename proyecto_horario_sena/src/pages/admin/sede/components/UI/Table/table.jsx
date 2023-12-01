@@ -14,6 +14,7 @@ import Paper from '@mui/material/Paper';
 
 
 
+
 export const TableSede = ()=> {
   // Almacena la informacion traida desde la peticion get
   const [data, setData] = useState({ sedes: [] })

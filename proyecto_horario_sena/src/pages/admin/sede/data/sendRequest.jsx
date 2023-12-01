@@ -151,7 +151,7 @@ export const registrarSede = async (sedeData) => {
       // Otros errores
       console.error("Error desconocido:", error.message);
     }
-    throw new Error("Error al registrar el instructor");
+    throw new Error("Error al registrar la sede");
   }
 };
 
@@ -169,17 +169,17 @@ export const eliminarSede = (id) => {
 
   return axios.delete(`${API_URL}/${endpoint}/${id}`, { headers })
     .then(() => {
-      console.log(`Instructor con ID ${id} eliminado correctamente`);
+      console.log(`Sede con ID ${id} eliminado correctamente`);
     })
     .catch((error) => {
-      console.error(`Error al eliminar el instructor con ID ${id}`, error);
-      throw new Error(`Error al eliminar el instructor: ${error.message}`);
+      console.error(`Error al eliminar la sede con ID ${id}`, error);
+      throw new Error(`Error al eliminar la sede: ${error.message}`);
     });
 };
 
 
 // GET Tipo de Dato
-export const fetchDataTiposDoc = async ()=>{
+export const fetchDataLocalidad = async ()=>{
 
   if (!TOKEN){
     window.location.href = '/'
@@ -192,7 +192,7 @@ export const fetchDataTiposDoc = async ()=>{
     'Authorization': `Bearer ${TOKEN}`,
   }
   try{
-    const response = await axios.get(`${API_URL}/tipodoc/`, {headers})
+    const response = await axios.get(`${API_URL}/localidad/`, {headers})
     return response.data
   }catch (error){
     console.error("error en el fetch", error)

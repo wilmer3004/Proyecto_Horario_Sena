@@ -1,7 +1,7 @@
 "use client";
 
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 // import { fetchDataTiposDoc } from '../../../data/sendRequest';
 import { InputLabel } from '../../../../../../components/input/inputUpdate';
 import { actualizarSede } from '../../../data/sendRequest';
@@ -11,6 +11,8 @@ import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import DialogActions from '@mui/material/DialogActions';
 import Divider from '@mui/material/Divider';
+
+import { fetchDataLocalidad } from '../../../data/sendRequest';
 
 export const ModalSede = ({
   open, 
@@ -25,22 +27,11 @@ export const ModalSede = ({
   
   // ALmacenamos la informacion que actualizaremos en un estado para luego enviarla al metodo PUT
   
-  // const [tiposDoc, setTipoDoc ] = useState({typesdocs: []})
+  const [localidades, setLocalidad ] = useState({localidades: []})
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  
 
-  // useEffect(() => {
-  //   const fetchDataTiposD = async () => {
-  //     try {
-  //       const response = await fetchDataTiposDoc();
-  //       setTipoDoc(response);
-  //     } catch (error) {
-  //       console.error('Error en la petición:', error);
-  //     }
-  //   };
-
-  //   fetchDataTiposD();
-  // }, []); 
 
   const [sedeData, setSedeData] = useState({
     id:id, 
@@ -50,6 +41,26 @@ export const ModalSede = ({
     estadoSede:estadoSede,
     idLocalidadFK:idLocalidadFK
   });
+
+
+  useEffect(() => {
+    const fetchDataLocalidades = async () => {
+      try {
+        setLoading(true);
+        const response = await fetchDataLocalidad();
+        setLocalidad(response);
+      } catch (error) {
+        console.error('Error en la petición de las localidades:', error);
+        setError('Error al cargar localidades');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchDataLocalidades();
+  }, []);
+
+
 
 
 //  Almacenamos la informacion de los input en su respectiva constante
@@ -114,21 +125,20 @@ const handleInputChange = (e) => {
                 <option value="1">Activo</option>
                 <option value="0">Inactivo</option>
               </select>
+
               <select
-                className='shadow-lg col-span-2 p-2 border rounded-md focus:outline-none appearance-none'
+                className='appearance-none mt-4 col-span-4 text-lg text-gray-500 p-2 font-light rounded-sm shadow-md outline-none border'
                 name="idLocalidadFK"
                 value={sedeData.idLocalidadFK}
                 onChange={handleInputChange}
               >
-                    <option  value={(sedeData.idLocalidadFK)}>{sedeData.idLocalidadFK}</option>
-                {/* {
+                {
                   // Mapeo de la informacion que pertenece al parametro tipos doc en bd 
-                  tiposDoc.typesdocs.map((tipo)=>(
-                    <option key={tipo.idTipoIdent} value={(tipo.idTipoIdent)}>{tipo.nombreTipoIdent}</option>
+                  localidades.localidades.map((localidad)=>(
+                    <option key={localidad.idLocalidad} value={(localidad.idLocalidad)}>{localidad.nombreLocalidad}</option>
                   ))
-                } */}
+                }
               </select>
-
               <InputLabel
                 col={2}
                 htmlId="imagenSede"
